@@ -1,2 +1,2 @@
-# heroes-academy
+# Heroes Academy
 Microservices architecture training project
