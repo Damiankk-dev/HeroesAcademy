@@ -1,4 +1,4 @@
-﻿using HeroesAcademy.Domain.Models;
+﻿using HeroesAcademy.Domain.Models.Heroes;
 
 namespace HeroesAcademy.Application.Repository
 {

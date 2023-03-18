@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using HeroesAcademy.Domain.Models;
+using HeroesAcademy.Domain.Models.Heroes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HeroesAcademy.Controllers;

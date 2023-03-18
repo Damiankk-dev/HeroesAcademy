@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroesAcademy.Domain.Models
+namespace HeroesAcademy.Domain.Models.Heroes
 {
-    public class Sidekick
+    public class Equipment
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int HeroId { get; set; }
-        public Hero Hero { get; set; }
+        public ICollection<Hero> Heroes { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using static System.String;
 
-namespace HeroesAcademy.Domain.Models;
+namespace HeroesAcademy.Domain.Models.Heroes;
 
 public static class ResponseResult
 {
@@ -10,7 +10,7 @@ public static class ResponseResult
         new ResponseResult<T>(default!, message, ErrorType.NotFound);
 }
 
-public class ResponseResult<T>:IResponseResult<T>
+public class ResponseResult<T> : IResponseResult<T>
 {
     public T Data { get; set; }
     public string Message { get; set; }
@@ -26,7 +26,7 @@ public class ResponseResult<T>:IResponseResult<T>
     }
 }
 
-public interface IResponseResult<T>:IResponseResult
+public interface IResponseResult<T> : IResponseResult
 {
     T Data { get; set; }
 }

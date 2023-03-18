@@ -1,5 +1,5 @@
 ﻿using HeroesAcademy.Application.Repository;
-using HeroesAcademy.Domain.Models;
+using HeroesAcademy.Domain.Models.Heroes;
 using MediatR;
 
 namespace HeroesAcademy.Application.Commands

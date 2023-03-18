@@ -1,4 +1,4 @@
-﻿namespace HeroesAcademy.Domain.Models
+﻿namespace HeroesAcademy.Domain.Models.Heroes
 {
     public class Hero
     {
