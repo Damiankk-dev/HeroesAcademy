@@ -60,3 +60,9 @@ aio/content/examples/.DS_Store
 
 #VisualStudio Solution
 *.sln
+*.vs
+
+*.angular
+
+*/obj
+*/bin

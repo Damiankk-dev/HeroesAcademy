@@ -135,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "HeroesAcademy"
+  "defaultProject": "HeroesAcademy",
+  "cli": {
+    "analytics": false
+  }
 }
