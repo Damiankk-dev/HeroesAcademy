@@ -4,7 +4,7 @@ using MediatR;
 
 namespace HeroesAcademy.Application.Query
 {
-    public class GetHeroByIdQuery : IRequest<ResponseResult<Hero?>>
+    public class GetHeroByIdQuery:IRequest<ResponseResult<Hero?>>
     {
         public int Id { get; }
 
@@ -14,7 +14,7 @@ namespace HeroesAcademy.Application.Query
         }
     }
 
-    public class GetHeroByIdQueryHandler : IRequestHandler<GetHeroByIdQuery, ResponseResult<Hero>>
+    public class GetHeroByIdQueryHandler:IRequestHandler<GetHeroByIdQuery, ResponseResult<Hero?>>
     {
         private readonly IHeroRepository _repository;
 
@@ -22,7 +22,7 @@ namespace HeroesAcademy.Application.Query
         {
             _repository = repository;
         }
-        public async Task<ResponseResult<Hero>> Handle(GetHeroByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ResponseResult<Hero?>> Handle(GetHeroByIdQuery request, CancellationToken cancellationToken)
         {
             return await _repository.GetbyId(request.Id);
         }

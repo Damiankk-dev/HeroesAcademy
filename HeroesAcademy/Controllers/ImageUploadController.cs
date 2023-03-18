@@ -1,6 +1,5 @@
 ﻿using HeroesAcademy.Application.Services;
 using HeroesAcademy.Configuration;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -20,7 +19,7 @@ namespace HeroesAcademy.Controllers
             _configuration = options.Value;
         }
         [HttpPost]
-        public async Task<IActionResult> UploadImage([FromForm] IFormFile file) 
+        public async Task<IActionResult> UploadImage([FromForm] IFormFile file)
         {
             using (var fileStream = new MemoryStream())
             {

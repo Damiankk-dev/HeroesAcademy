@@ -2,37 +2,48 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { SecretPipe } from './heroes-list/secret/secret.pipe';
 import { FistComponent } from './fist/fist.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HeroDetailsComponent } from './hero-details/hero-details.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HeroEditComponent } from './hero-edit/hero-edit.component';
+import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
+import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
+    HeroesListComponent,
+    SecretPipe,
+    FistComponent,
+    HeroDetailsComponent,
     HomeComponent,
-    HeroesListComponent, SecretPipe, FistComponent, HeroDetailComponent, HeroEditComponent
+    NavMenuComponent,
+    HeroEditComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    ApiAuthorizationModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'heroEdit', component: HeroEditComponent},
-      { path: 'heroes/:id', component: HeroDetailComponent },
-      { path: 'heroes', component: HeroesListComponent },
-      { path: 'home', component: HomeComponent},
-      { path: '', redirectTo:'home', pathMatch: 'full' },
-    ])
+      { path: 'heroEdit/:id', component: HeroEditComponent, canActivate: [AuthorizeGuard] },
+      { path: 'heroEdit', component: HeroEditComponent, canActivate: [AuthorizeGuard] },
+      { path: 'heroes/:id', component: HeroDetailsComponent },
+      {
+        path: 'heroes',
+        component: HeroesListComponent,
+      },
+      { path: 'home', component: HomeComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

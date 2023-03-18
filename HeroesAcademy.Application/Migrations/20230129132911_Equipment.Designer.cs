@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeroesAcademy.Application.Migrations
 {
     [DbContext(typeof(HeroesAcademyDbContext))]
-    [Migration("20230129132900_Equipment")]
+    [Migration("20230129132911_Equipment")]
     partial class Equipment
     {
         /// <inheritdoc />

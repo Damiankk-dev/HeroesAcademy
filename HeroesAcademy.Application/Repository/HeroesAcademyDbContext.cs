@@ -9,6 +9,7 @@ namespace HeroesAcademy.Application.Repository
     internal class HeroesAcademyDbContext:ApiAuthorizationDbContext<ApplicationUser>
     {
         public DbSet<Hero> Heroes { get; set; }
+
         public HeroesAcademyDbContext(DbContextOptions<HeroesAcademyDbContext> options, IOptions<OperationalStoreOptions> operationalStoreOptions) :base(options, operationalStoreOptions)
         {
         }
@@ -18,27 +19,27 @@ namespace HeroesAcademy.Application.Repository
             base.OnModelCreating(builder);
             builder.Entity<Hero>().Property(x => x.Salary).HasPrecision(9, 2);
             builder.Entity<Hero>().HasData(new Hero()
-            {                
-                    Id = 1,
-                    Name = "Iron Man",
-                    Team = "Avengers",
-                    SecretIdentity = "Tony Stark",
-                    Salary = 0.99m,
-                    Description = "Man with iron suit",
-                    Strength = 4.2,
-                    LogoUrl = "assets/logos/iron-man.png"
-            
+            {
+                Id = 1,
+                Name = "Iron Man",
+                Team = "Avengers",
+                SecretIdentity = "Tony Stark",
+                Salary = 0.99m,
+                Description = "Man with iron suit",
+                Strength = 4.2,
+                LogoUrl = "assets/logos/iron-man.png"
             });
-            builder.Entity<Hero>().HasData(new Hero() {
-                    Id = 2,
-                    Name= "Thor",
-                    Team= "Avengers",
-                    SecretIdentity= "Thor Odinson",
-                    Salary= 10.99m,
-                    Description= "Norse god of thunder",
-                    Strength= 4.5,
-                    LogoUrl= "assets/logos/thor.png"
-                });
+            builder.Entity<Hero>().HasData(new Hero()
+            {
+                Id = 2,
+                Name = "Thor",
+                Team = "Avengers",
+                SecretIdentity = "Thor Odinson",
+                Salary = 10.99m,
+                Description = "Norse god of thunder",
+                Strength = 4.5,
+                LogoUrl = "assets/logos/thor.png"
+            });
             builder.Entity<Hero>().HasData(new Hero()
             {
                 Id = 3,

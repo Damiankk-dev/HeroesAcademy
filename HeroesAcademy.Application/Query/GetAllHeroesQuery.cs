@@ -8,7 +8,7 @@ namespace HeroesAcademy.Application.Query
     {
     }
 
-    public class GetAllHeroesQueryHandler:IRequestHandler<GetAllHeroesQuery, ResponseResult<List<Hero>>>
+    public class GetAllHeroesQueryHandler:IRequestHandler<GetAllHeroesQuery,ResponseResult<List<Hero>>>
     {
         private readonly IHeroRepository _heroRepository;
 
@@ -16,6 +16,7 @@ namespace HeroesAcademy.Application.Query
         {
             _heroRepository = heroRepository;
         }
+
         public Task<ResponseResult<List<Hero>>> Handle(GetAllHeroesQuery request, CancellationToken cancellationToken)
         {
             return _heroRepository.Get();

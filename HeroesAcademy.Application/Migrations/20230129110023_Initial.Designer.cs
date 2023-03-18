@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HeroesAcademy.Application.Migrations
 {
     [DbContext(typeof(HeroesAcademyDbContext))]
-    [Migration("20230129132613_Sidekick")]
-    partial class Sidekick
+    [Migration("20230129110023_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,81 +103,6 @@ namespace HeroesAcademy.Application.Migrations
                             Strength = 5.0,
                             Team = "Justice League"
                         });
-                });
-
-            modelBuilder.Entity("HeroesAcademy.Domain.Models.Location", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("HeroId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HeroId")
-                        .IsUnique();
-
-                    b.ToTable("Location");
-                });
-
-            modelBuilder.Entity("HeroesAcademy.Domain.Models.Sidekick", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("HeroId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HeroId");
-
-                    b.ToTable("Sidekick");
-                });
-
-            modelBuilder.Entity("HeroesAcademy.Domain.Models.Location", b =>
-                {
-                    b.HasOne("HeroesAcademy.Domain.Models.Hero", "Hero")
-                        .WithOne("Location")
-                        .HasForeignKey("HeroesAcademy.Domain.Models.Location", "HeroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hero");
-                });
-
-            modelBuilder.Entity("HeroesAcademy.Domain.Models.Sidekick", b =>
-                {
-                    b.HasOne("HeroesAcademy.Domain.Models.Hero", "Hero")
-                        .WithMany("Sidekicks")
-                        .HasForeignKey("HeroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hero");
-                });
-
-            modelBuilder.Entity("HeroesAcademy.Domain.Models.Hero", b =>
-                {
-                    b.Navigation("Location")
-                        .IsRequired();
-
-                    b.Navigation("Sidekicks");
                 });
 #pragma warning restore 612, 618
         }

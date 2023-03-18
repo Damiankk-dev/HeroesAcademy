@@ -11,9 +11,8 @@
         public double Strength { get; set; }
         public string LogoUrl { get; set; }
         public bool IsActive { get; set; }
-
-        public Location Location { get; set; }
-        public ICollection<Sidekick> Sidekicks { get; set; }
-        public ICollection<Equipment> Equipments { get; set; }
+        public Location? Location { get; set; } = null!;
+        public ICollection<Sidekick> Sidekicks { get; set; } = Array.Empty<Sidekick>();
+        public ICollection<Equipment> Equipments { get; set; } = Array.Empty<Equipment>();
     }
 }

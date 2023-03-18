@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroesAcademy", "HeroesAcademy\HeroesAcademy.csproj", "{D2C06801-A0CA-407B-A2BD-EE9305D6CA44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroesAcademy", "HeroesAcademy\HeroesAcademy.csproj", "{71BA8EF1-491A-4458-AF9D-4A4F386B0BD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroesAcademy.Domain", "HeroesAcademy.Domain\HeroesAcademy.Domain.csproj", "{58538AB7-CC60-4013-8527-F4AC833B2AA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroesAcademy.Domain", "HeroesAcademy.Domain\HeroesAcademy.Domain.csproj", "{51ABD570-E027-45E1-A552-1B123AAEB061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroesAcademy.Application", "HeroesAcademy.Application\HeroesAcademy.Application.csproj", "{F34C8FAC-6FB2-4045-9726-4A31CCB68289}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroesAcademy.Application", "HeroesAcademy.Application\HeroesAcademy.Application.csproj", "{802CCACB-86A5-4AFA-ACBC-6624F21FDBCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D2C06801-A0CA-407B-A2BD-EE9305D6CA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2C06801-A0CA-407B-A2BD-EE9305D6CA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2C06801-A0CA-407B-A2BD-EE9305D6CA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2C06801-A0CA-407B-A2BD-EE9305D6CA44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58538AB7-CC60-4013-8527-F4AC833B2AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58538AB7-CC60-4013-8527-F4AC833B2AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58538AB7-CC60-4013-8527-F4AC833B2AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58538AB7-CC60-4013-8527-F4AC833B2AA0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F34C8FAC-6FB2-4045-9726-4A31CCB68289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F34C8FAC-6FB2-4045-9726-4A31CCB68289}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F34C8FAC-6FB2-4045-9726-4A31CCB68289}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F34C8FAC-6FB2-4045-9726-4A31CCB68289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71BA8EF1-491A-4458-AF9D-4A4F386B0BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71BA8EF1-491A-4458-AF9D-4A4F386B0BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71BA8EF1-491A-4458-AF9D-4A4F386B0BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71BA8EF1-491A-4458-AF9D-4A4F386B0BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51ABD570-E027-45E1-A552-1B123AAEB061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51ABD570-E027-45E1-A552-1B123AAEB061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51ABD570-E027-45E1-A552-1B123AAEB061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51ABD570-E027-45E1-A552-1B123AAEB061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{802CCACB-86A5-4AFA-ACBC-6624F21FDBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802CCACB-86A5-4AFA-ACBC-6624F21FDBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802CCACB-86A5-4AFA-ACBC-6624F21FDBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802CCACB-86A5-4AFA-ACBC-6624F21FDBCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D3B6DF40-7B73-41B2-A2C7-406B3EDB8ADF}
+		SolutionGuid = {1E631D42-1677-4524-986A-4C67E81EC79B}
 	EndGlobalSection
 EndGlobal

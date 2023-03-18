@@ -9,13 +9,15 @@ namespace HeroesAcademy.Swagger
         {
             const string fileUploadMime = "multipart/form-data";
             if (operation.RequestBody?.Content.Any(x => x.Key.Equals(fileUploadMime, StringComparison.InvariantCultureIgnoreCase)) != true)
-                return; var fileParams = context.MethodInfo.GetParameters().Where(p => p.ParameterType == typeof(IFormFile));
+                return;
+
+            var fileParams = context.MethodInfo.GetParameters().Where(p => p.ParameterType == typeof(IFormFile));
             operation.RequestBody.Content[fileUploadMime].Schema.Properties =
-            fileParams.ToDictionary(k => k.Name, _ => new OpenApiSchema()
-            {
-                Type = "string",
-                Format = "binary"
-            });
+                fileParams.ToDictionary(k => k.Name, _ => new OpenApiSchema()
+                {
+                    Type = "string",
+                    Format = "binary"
+                });
         }
     }
 }
