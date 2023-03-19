@@ -60,7 +60,7 @@ aio/content/examples/.DS_Store
 
 #VisualStudio Solution
 *.sln
-/.vs/
+.vs/
 
 *.angular
 
