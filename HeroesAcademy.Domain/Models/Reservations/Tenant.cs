@@ -8,6 +8,5 @@ namespace HeroesAcademy.Domain.Models.Reservations
         public string Name { get; set; }
         public ICollection<Reservation>? Reservations { get; set; }
         public Hero Hero { get; set; }
-
     }
 }
