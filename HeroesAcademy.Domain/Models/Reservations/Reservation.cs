@@ -6,6 +6,7 @@ namespace HeroesAcademy.Domain.Models.Reservations
     {
         public int Id { get; set; }
         public int RoomId { get; set; }
+        public int TenantId { get; set; }
         public DateTime ReservationStart { get; set; }
         public DateTime ReservationEnd { get; set; }
         public Tenant Tenant { get; set; }
