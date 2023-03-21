@@ -1,5 +1,6 @@
 ﻿using Duende.IdentityServer.EntityFramework.Options;
 using HeroesAcademy.Domain.Models.Heroes;
+using HeroesAcademy.Domain.Models.Reservations;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -9,6 +10,7 @@ namespace HeroesAcademy.Application.Repository
     internal class HeroesAcademyDbContext:ApiAuthorizationDbContext<ApplicationUser>
     {
         public DbSet<Hero> Heroes { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         public HeroesAcademyDbContext(DbContextOptions<HeroesAcademyDbContext> options, IOptions<OperationalStoreOptions> operationalStoreOptions) :base(options, operationalStoreOptions)
         {
