@@ -53,6 +53,23 @@ namespace HeroesAcademy.Application.Repository
                 Strength = 5.0,
                 LogoUrl = "assets/logos/superman.png"
             });
+
+            builder.Entity<Reservation>().HasData(new Reservation()
+            {
+                Id = 1,
+                RoomId = 1,
+                TenantId = 1,
+                ReservationEnd = DateTime.UtcNow,
+                ReservationStart = DateTime.UtcNow
+            });
+            builder.Entity<Reservation>().HasData(new Reservation()
+            {
+                Id = 1,
+                RoomId = 1,
+                TenantId = 2,
+                ReservationEnd = DateTime.UtcNow,
+                ReservationStart = DateTime.UtcNow
+            });
         }
     }
 }
