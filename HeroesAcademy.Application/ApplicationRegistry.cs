@@ -14,6 +14,7 @@ namespace HeroesAcademy.Application
         public static void AddApplication(this IServiceCollection services, string connectionString)
         {
             services.AddScoped<IHeroRepository, HeroEFRepository>();
+            services.AddScoped<IReservationRepository, ReservationEFRepository>();
             services.AddDbContext<HeroesAcademyDbContext>(options => options.UseSqlServer(connectionString));
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IFileUploadService, FileUploadService>();
