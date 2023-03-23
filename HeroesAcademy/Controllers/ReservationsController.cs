@@ -1,4 +1,5 @@
-﻿using HeroesAcademy.Application.Query;
+﻿using HeroesAcademy.Application.Commands;
+using HeroesAcademy.Application.Query;
 using HeroesAcademy.Domain.Models.Reservations;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -39,6 +40,15 @@ namespace HeroesAcademy.Controllers
         public async Task<IActionResult> GetResrevationByHeroId(int id)
         {
             var response = await _mediator.Send(new GetReservationByHeroIdQuery(id));
+            return OkOrError(response);
+        }
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Reservation))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type=typeof(Reservation))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> AddReservation([FromBody] Reservation reservation)
+        {
+            var response = await _mediator.Send(new AddReservationCommand(reservation));
             return OkOrError(response);
         }
     }

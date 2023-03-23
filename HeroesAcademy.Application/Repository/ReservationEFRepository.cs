@@ -13,6 +13,13 @@ namespace HeroesAcademy.Application.Repository
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
+        public async Task<ResponseResult<Reservation>> Add(Reservation reservation)
+        {        
+            _context.Add(reservation);
+            await _context.SaveChangesAsync();
+            return ResponseResult.Ok(reservation);
+        }
+
         public async Task<ResponseResult<List<Reservation>>> GetReservationByHeroId(int id)
         {
             var reservations = await _context.Reservations.Where(r => r.TenantId == id).ToListAsync();
