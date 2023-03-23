@@ -6,6 +6,7 @@ namespace HeroesAcademy.Application.Repository
 {
     public interface IReservationRepository
     {
+        Task<ResponseResult<List<Reservation>>> GetReservationByHeroId(int id);
         Task<ResponseResult<List<Reservation>>> GetReservationByRoomId(int id);
         //Task<ResponseResult<List<Reservation>>> GetByUserId(int id);
         //Task<ResponseResult<Reservation>> Add(Reservation reservation);
