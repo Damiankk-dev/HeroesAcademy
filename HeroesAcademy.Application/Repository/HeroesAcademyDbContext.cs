@@ -56,7 +56,7 @@ namespace HeroesAcademy.Application.Repository
 
             builder.Entity<Reservation>().HasData(new Reservation()
             {
-                Id = 1,
+                Id = 2,
                 RoomId = 1,
                 TenantId = 1,
                 ReservationEnd = DateTime.UtcNow,
@@ -64,7 +64,7 @@ namespace HeroesAcademy.Application.Repository
             });
             builder.Entity<Reservation>().HasData(new Reservation()
             {
-                Id = 1,
+                Id = 3,
                 RoomId = 1,
                 TenantId = 2,
                 ReservationEnd = DateTime.UtcNow,
