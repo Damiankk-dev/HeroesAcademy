@@ -51,5 +51,28 @@ namespace HeroesAcademy.Controllers
             var response = await _mediator.Send(new AddReservationCommand(reservation));
             return OkOrError(response);
         }
+
+        [AllowAnonymous]
+        [HttpDelete("{reservationId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(int))]
+        public async Task<IActionResult> DeleteReservation(int reservationId)
+        {
+            var response = await _mediator.Send(new DeleteReservationCommand(reservationId));
+            return OkOrError(response);
+        }
+        [AllowAnonymous]
+        [HttpPut("{reservationId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(int))]
+        public async Task<IActionResult> UpdateReservation([FromBody] Reservation reservation, int reservationId)
+        {
+            var response = await _mediator.Send(new UpdateReservationCommand(reservationId, reservation));
+            return OkOrError(response);
+        }
     }
 }
