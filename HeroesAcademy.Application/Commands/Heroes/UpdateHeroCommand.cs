@@ -1,8 +1,9 @@
-﻿using HeroesAcademy.Application.Repository;
+﻿using HeroesAcademy.Application.Repository.Heroes;
 using HeroesAcademy.Domain.Models.Heroes;
+using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 
-namespace HeroesAcademy.Application.Commands;
+namespace HeroesAcademy.Application.Commands.Heroes;
 
 public class UpdateHeroCommand : IRequest<ResponseResult<Hero>>
 {

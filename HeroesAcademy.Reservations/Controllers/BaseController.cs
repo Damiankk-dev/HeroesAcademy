@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using HeroesAcademy.Domain.Models.Heroes;
+using HeroesAcademy.Domain.Models.Shared;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HeroesAcademy.Controllers;

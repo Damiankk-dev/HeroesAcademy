@@ -1,8 +1,7 @@
-﻿
-using HeroesAcademy.Domain.Models.Heroes;
-using HeroesAcademy.Domain.Models.Reservations;
+﻿using HeroesAcademy.Domain.Models.Reservations;
+using HeroesAcademy.Domain.Models.Shared;
 
-namespace HeroesAcademy.Application.Repository
+namespace HeroesAcademy.Application.Repository.Reservations
 {
     public interface IReservationRepository
     {

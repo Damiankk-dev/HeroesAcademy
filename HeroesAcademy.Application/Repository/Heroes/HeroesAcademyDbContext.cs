@@ -5,12 +5,11 @@ using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-namespace HeroesAcademy.Application.Repository
+namespace HeroesAcademy.Application.Repository.Heroes
 {
     internal class HeroesAcademyDbContext:ApiAuthorizationDbContext<ApplicationUser>
     {
         public DbSet<Hero> Heroes { get; set; }
-        public DbSet<Reservation> Reservations { get; set; }
 
         public HeroesAcademyDbContext(DbContextOptions<HeroesAcademyDbContext> options, IOptions<OperationalStoreOptions> operationalStoreOptions) :base(options, operationalStoreOptions)
         {
@@ -52,23 +51,6 @@ namespace HeroesAcademy.Application.Repository
                 Description = "Man of steel",
                 Strength = 5.0,
                 LogoUrl = "assets/logos/superman.png"
-            });
-
-            builder.Entity<Reservation>().HasData(new Reservation()
-            {
-                Id = 2,
-                RoomId = 1,
-                TenantId = 1,
-                ReservationEnd = DateTime.UtcNow,
-                ReservationStart = DateTime.UtcNow
-            });
-            builder.Entity<Reservation>().HasData(new Reservation()
-            {
-                Id = 3,
-                RoomId = 1,
-                TenantId = 2,
-                ReservationEnd = DateTime.UtcNow,
-                ReservationStart = DateTime.UtcNow
             });
         }
     }

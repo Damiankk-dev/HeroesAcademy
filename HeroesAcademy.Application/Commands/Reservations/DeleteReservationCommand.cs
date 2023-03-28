@@ -1,10 +1,10 @@
-﻿using HeroesAcademy.Application.Repository;
-using HeroesAcademy.Domain.Models.Heroes;
+﻿using HeroesAcademy.Application.Repository.Reservations;
+using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 
-namespace HeroesAcademy.Application.Commands
+namespace HeroesAcademy.Application.Commands.Reservations
 {
-    public class DeleteReservationCommand:IRequest<ResponseResult<int>>
+    public class DeleteReservationCommand : IRequest<ResponseResult<int>>
     {
         public int ReservationId { get; }
         public DeleteReservationCommand(int reservationId)
@@ -13,7 +13,7 @@ namespace HeroesAcademy.Application.Commands
         }
     }
 
-    public class DeleteReservationCommandHandler:IRequestHandler<DeleteReservationCommand, ResponseResult<int>>
+    public class DeleteReservationCommandHandler : IRequestHandler<DeleteReservationCommand, ResponseResult<int>>
     {
         private readonly IReservationRepository _repository;
         public DeleteReservationCommandHandler(IReservationRepository repository)

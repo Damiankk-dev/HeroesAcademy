@@ -28,6 +28,7 @@ builder.Services.Configure<FileServerConfiguration>(builder.Configuration.GetSec
 
 var connectionString = builder.Configuration.GetConnectionString("HeroesAcademy");
 builder.Services.AddApplication(connectionString);
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

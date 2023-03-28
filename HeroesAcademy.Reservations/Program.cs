@@ -1,3 +1,5 @@
+using HeroesAcademy.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,6 +17,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+var connectionString = builder.Configuration.GetConnectionString("HeroesAcademy_reservations");
+builder.Services.AddApplication(connectionString);
 
 app.UseHttpsRedirection();
 

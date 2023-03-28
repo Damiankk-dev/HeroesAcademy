@@ -1,11 +1,12 @@
-﻿using HeroesAcademy.Application.Repository;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using HeroesAcademy.Application.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using HeroesAcademy.Application.Repository.Heroes;
+using HeroesAcademy.Application.Repository.Reservations;
 
 namespace HeroesAcademy.Application
 {

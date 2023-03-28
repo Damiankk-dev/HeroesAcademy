@@ -1,14 +1,15 @@
-﻿using HeroesAcademy.Application.Repository;
+﻿using HeroesAcademy.Application.Repository.Heroes;
 using HeroesAcademy.Domain.Models.Heroes;
+using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 
-namespace HeroesAcademy.Application.Query
+namespace HeroesAcademy.Application.Query.Heroes
 {
-    public class GetAllHeroesQuery:IRequest<ResponseResult<List<Hero>>>
+    public class GetAllHeroesQuery : IRequest<ResponseResult<List<Hero>>>
     {
     }
 
-    public class GetAllHeroesQueryHandler:IRequestHandler<GetAllHeroesQuery,ResponseResult<List<Hero>>>
+    public class GetAllHeroesQueryHandler : IRequestHandler<GetAllHeroesQuery, ResponseResult<List<Hero>>>
     {
         private readonly IHeroRepository _heroRepository;
 

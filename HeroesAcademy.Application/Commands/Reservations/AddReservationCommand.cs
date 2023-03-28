@@ -1,16 +1,16 @@
-﻿using HeroesAcademy.Application.Repository;
-using HeroesAcademy.Domain.Models.Heroes;
+﻿using HeroesAcademy.Application.Repository.Reservations;
 using HeroesAcademy.Domain.Models.Reservations;
+using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 
-namespace HeroesAcademy.Application.Commands
+namespace HeroesAcademy.Application.Commands.Reservations
 {
-    public class AddReservationCommand:IRequest<ResponseResult<Reservation>>
+    public class AddReservationCommand : IRequest<ResponseResult<Reservation>>
     {
         public Reservation Reservation { get; }
         public AddReservationCommand(Reservation reservation)
         {
-            Reservation = reservation;            
+            Reservation = reservation;
         }
     }
 

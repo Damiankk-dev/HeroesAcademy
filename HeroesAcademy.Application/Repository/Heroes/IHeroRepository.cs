@@ -1,6 +1,7 @@
 ﻿using HeroesAcademy.Domain.Models.Heroes;
+using HeroesAcademy.Domain.Models.Shared;
 
-namespace HeroesAcademy.Application.Repository
+namespace HeroesAcademy.Application.Repository.Heroes
 {
     public interface IHeroRepository
     {

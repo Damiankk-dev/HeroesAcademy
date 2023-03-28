@@ -1,20 +1,20 @@
-﻿using HeroesAcademy.Domain.Models.Heroes;
-using HeroesAcademy.Domain.Models.Reservations;
+﻿using HeroesAcademy.Domain.Models.Reservations;
+using HeroesAcademy.Domain.Models.Shared;
 using Microsoft.EntityFrameworkCore;
 
-namespace HeroesAcademy.Application.Repository
+namespace HeroesAcademy.Application.Repository.Reservations
 {
-    internal class ReservationEFRepository: IReservationRepository
+    internal class ReservationEFRepository : IReservationRepository
     {
-        private readonly HeroesAcademyDbContext _context;
+        private readonly ReservationsDbContext _context;
 
-        public ReservationEFRepository(HeroesAcademyDbContext context)
+        public ReservationEFRepository(ReservationsDbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public async Task<ResponseResult<Reservation>> Add(Reservation reservation)
-        {        
+        {
             _context.Add(reservation);
             await _context.SaveChangesAsync();
             return ResponseResult.Ok(reservation);
@@ -41,7 +41,7 @@ namespace HeroesAcademy.Application.Repository
         public async Task<ResponseResult<List<Reservation>>> GetReservationByRoomId(int id)
         {
             var reservations = await _context.Reservations.Where(r => r.RoomId == id).ToListAsync();
-            return ResponseResult.Ok(reservations);   
+            return ResponseResult.Ok(reservations);
         }
 
         public async Task<ResponseResult<Reservation>> Update(int reservationId, Reservation reservation)

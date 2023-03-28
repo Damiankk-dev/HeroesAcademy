@@ -1,11 +1,11 @@
-﻿using HeroesAcademy.Application.Repository;
-using HeroesAcademy.Domain.Models.Heroes;
+﻿using HeroesAcademy.Application.Repository.Reservations;
 using HeroesAcademy.Domain.Models.Reservations;
+using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 
-namespace HeroesAcademy.Application.Query
+namespace HeroesAcademy.Application.Query.Reservations
 {
-    public class GetReservationByRoomIdQuery:IRequest<ResponseResult<List<Reservation>>>
+    public class GetReservationByRoomIdQuery : IRequest<ResponseResult<List<Reservation>>>
     {
         public int Id { get; }
 
@@ -24,7 +24,7 @@ namespace HeroesAcademy.Application.Query
             _reservationRepository = reservationRepository;
         }
 
-        public Task<ResponseResult<List<Reservation>>> Handle (GetReservationByRoomIdQuery request, CancellationToken cancellationToken)
+        public Task<ResponseResult<List<Reservation>>> Handle(GetReservationByRoomIdQuery request, CancellationToken cancellationToken)
         {
             return _reservationRepository.GetReservationByRoomId(request.Id);
         }

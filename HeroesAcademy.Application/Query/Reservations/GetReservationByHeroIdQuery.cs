@@ -1,9 +1,9 @@
-﻿using HeroesAcademy.Application.Repository;
-using HeroesAcademy.Domain.Models.Heroes;
+﻿using HeroesAcademy.Application.Repository.Reservations;
 using HeroesAcademy.Domain.Models.Reservations;
+using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 
-namespace HeroesAcademy.Application.Query
+namespace HeroesAcademy.Application.Query.Reservations
 {
     public class GetReservationByHeroIdQuery : IRequest<ResponseResult<List<Reservation>>>
     {

@@ -1,6 +1,6 @@
-﻿using HeroesAcademy.Application.Repository;
-using HeroesAcademy.Domain.Models.Heroes;
+﻿using HeroesAcademy.Application.Repository.Reservations;
 using HeroesAcademy.Domain.Models.Reservations;
+using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroesAcademy.Application.Commands
+namespace HeroesAcademy.Application.Commands.Reservations
 {
-    public class UpdateReservationCommand:IRequest<ResponseResult<Reservation>>
+    public class UpdateReservationCommand : IRequest<ResponseResult<Reservation>>
     {
         public int ReservationId { get; }
         public Reservation Reservation { get; }
@@ -30,7 +30,7 @@ namespace HeroesAcademy.Application.Commands
         }
         public Task<ResponseResult<Reservation>> Handle(UpdateReservationCommand request, CancellationToken cancellationToken)
         {
-            return _repository.Update(request.ReservationId, request.Reservation);            
+            return _repository.Update(request.ReservationId, request.Reservation);
         }
     }
 }

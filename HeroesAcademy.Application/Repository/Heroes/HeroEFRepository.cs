@@ -1,9 +1,10 @@
 ﻿using HeroesAcademy.Domain.Models.Heroes;
+using HeroesAcademy.Domain.Models.Shared;
 using Microsoft.EntityFrameworkCore;
 
-namespace HeroesAcademy.Application.Repository
+namespace HeroesAcademy.Application.Repository.Heroes
 {
-    internal class HeroEFRepository:IHeroRepository
+    internal class HeroEFRepository : IHeroRepository
     {
         private readonly HeroesAcademyDbContext _context;
 

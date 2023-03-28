@@ -1,5 +1,5 @@
-﻿using HeroesAcademy.Application.Commands;
-using HeroesAcademy.Application.Query;
+﻿using HeroesAcademy.Application.Commands.Reservations;
+using HeroesAcademy.Application.Query.Reservations;
 using HeroesAcademy.Domain.Models.Reservations;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
