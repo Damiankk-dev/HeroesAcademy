@@ -17,9 +17,10 @@ namespace HeroesAcademy.Application
             services.AddScoped<IHeroRepository, HeroEFRepository>();
             services.AddScoped<IReservationRepository, ReservationEFRepository>();
             services.AddDbContext<HeroesAcademyDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<ReservationsDbContext>(options => options.UseSqlServer(connectionString));
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IFileUploadService, FileUploadService>();
-            services.AddDefaultIdentity<ApplicationUser>(options=>
+            services.AddDefaultIdentity<ApplicationUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequiredLength = 6;
@@ -27,5 +28,6 @@ namespace HeroesAcademy.Application
             services.AddIdentityServer().AddApiAuthorization<ApplicationUser, HeroesAcademyDbContext>();
             services.AddAuthentication().AddIdentityServerJwt();
         }
+
     }
 }

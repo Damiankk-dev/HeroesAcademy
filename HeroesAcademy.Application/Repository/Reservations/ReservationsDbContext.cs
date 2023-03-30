@@ -6,10 +6,10 @@ using Microsoft.Extensions.Options;
 
 namespace HeroesAcademy.Application.Repository.Reservations
 {
-    internal class ReservationsDbContext: ApiAuthorizationDbContext<ApplicationUser>
+    internal class ReservationsDbContext: DbContext
     {
         public DbSet<Reservation> Reservations { get; set; }
-        public ReservationsDbContext(DbContextOptions<ReservationsDbContext> options, IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+        public ReservationsDbContext(DbContextOptions<ReservationsDbContext> options) : base(options)
         {            
         }
 
@@ -19,18 +19,28 @@ namespace HeroesAcademy.Application.Repository.Reservations
             builder.Entity<Reservation>().HasData(new Reservation()
             {
                 Id = 2,
-                RoomId = 1,
-                TenantId = 1,
                 ReservationEnd = DateTime.UtcNow,
-                ReservationStart = DateTime.UtcNow
+                ReservationStart = DateTime.UtcNow,
+                RoomId = 1,
+                TenantId = 1
             });
             builder.Entity<Reservation>().HasData(new Reservation()
             {
                 Id = 3,
-                RoomId = 1,
-                TenantId = 2,
                 ReservationEnd = DateTime.UtcNow,
-                ReservationStart = DateTime.UtcNow
+                ReservationStart = DateTime.UtcNow,
+                RoomId = 1,
+                TenantId = 1
+            });
+            builder.Entity<Room>().HasData(new Room()
+            {
+                Id = 1,
+                Name = "WestRoom",
+                Volume = 10
+            });
+            builder.Entity<Tenant>().HasData(new Tenant()
+            {
+                Id = 1,
             });
         }
     }

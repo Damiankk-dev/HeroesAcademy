@@ -9,6 +9,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var connectionString = builder.Configuration.GetConnectionString("HeroesAcademy_reservations");
+builder.Services.AddApplication(connectionString);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,9 +20,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-var connectionString = builder.Configuration.GetConnectionString("HeroesAcademy_reservations");
-builder.Services.AddApplication(connectionString);
 
 app.UseHttpsRedirection();
 
