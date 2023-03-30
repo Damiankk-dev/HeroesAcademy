@@ -1,4 +1,4 @@
-using HeroesAcademy.Application;
+using Reservations.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 

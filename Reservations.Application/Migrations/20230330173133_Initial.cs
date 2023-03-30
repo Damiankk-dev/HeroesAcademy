@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace HeroesAcademy.Application.Migrations.ReservationsDb
+namespace Reservations.Application.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialReservation : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -103,8 +103,8 @@ namespace HeroesAcademy.Application.Migrations.ReservationsDb
                 columns: new[] { "Id", "ReservationEnd", "ReservationStart", "RoomId", "TenantId" },
                 values: new object[,]
                 {
-                    { 2, new DateTime(2023, 3, 30, 15, 25, 30, 775, DateTimeKind.Utc).AddTicks(3001), new DateTime(2023, 3, 30, 15, 25, 30, 775, DateTimeKind.Utc).AddTicks(3003), 1, 1 },
-                    { 3, new DateTime(2023, 3, 30, 15, 25, 30, 775, DateTimeKind.Utc).AddTicks(3031), new DateTime(2023, 3, 30, 15, 25, 30, 775, DateTimeKind.Utc).AddTicks(3032), 1, 1 }
+                    { 2, new DateTime(2023, 3, 30, 17, 31, 33, 358, DateTimeKind.Utc).AddTicks(7392), new DateTime(2023, 3, 30, 17, 31, 33, 358, DateTimeKind.Utc).AddTicks(7394), 1, 1 },
+                    { 3, new DateTime(2023, 3, 30, 17, 31, 33, 358, DateTimeKind.Utc).AddTicks(7418), new DateTime(2023, 3, 30, 17, 31, 33, 358, DateTimeKind.Utc).AddTicks(7419), 1, 1 }
                 });
 
             migrationBuilder.CreateIndex(

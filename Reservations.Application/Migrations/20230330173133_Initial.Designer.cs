@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace HeroesAcademy.Application.Migrations.ReservationsDb
+namespace Reservations.Application.Migrations
 {
     [DbContext(typeof(ReservationsDbContext))]
-    [Migration("20230330152530_InitialReservation")]
-    partial class InitialReservation
+    [Migration("20230330173133_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,16 +82,16 @@ namespace HeroesAcademy.Application.Migrations.ReservationsDb
                         new
                         {
                             Id = 2,
-                            ReservationEnd = new DateTime(2023, 3, 30, 15, 25, 30, 775, DateTimeKind.Utc).AddTicks(3001),
-                            ReservationStart = new DateTime(2023, 3, 30, 15, 25, 30, 775, DateTimeKind.Utc).AddTicks(3003),
+                            ReservationEnd = new DateTime(2023, 3, 30, 17, 31, 33, 358, DateTimeKind.Utc).AddTicks(7392),
+                            ReservationStart = new DateTime(2023, 3, 30, 17, 31, 33, 358, DateTimeKind.Utc).AddTicks(7394),
                             RoomId = 1,
                             TenantId = 1
                         },
                         new
                         {
                             Id = 3,
-                            ReservationEnd = new DateTime(2023, 3, 30, 15, 25, 30, 775, DateTimeKind.Utc).AddTicks(3031),
-                            ReservationStart = new DateTime(2023, 3, 30, 15, 25, 30, 775, DateTimeKind.Utc).AddTicks(3032),
+                            ReservationEnd = new DateTime(2023, 3, 30, 17, 31, 33, 358, DateTimeKind.Utc).AddTicks(7418),
+                            ReservationStart = new DateTime(2023, 3, 30, 17, 31, 33, 358, DateTimeKind.Utc).AddTicks(7419),
                             RoomId = 1,
                             TenantId = 1
                         });
