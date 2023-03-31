@@ -1,1 +1,40 @@
 <p>reservations-list works!</p>
+<div class="card">
+    <div class="card-header">Reservations List</div><div class="card-body">
+        <div class="row">
+          <div class="col-md-6 left">
+            <h4>Filtrowanie po herosach:</h4>
+            <select
+                id="hero"
+                name="hero"
+                [(ngModel)]="listFilter"
+            >
+                <option value="" selected disabled hidden>Wybierz</option>
+                <option *ngFor="let hero of heroes" >{{ hero }}</option>
+            </select>
+          </div>
+        </div>
+        <div class='table-responsive'>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>RoomId</th>
+                        <th>TenentId</th>
+                        <th>Start</th>
+                        <th>Koniec</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let reservation of filteredReservations">
+                        <td>{{reservation.id}}</td>
+                        <td>{{reservation.roomId }}</td>
+                        <td>{{ reservation.tenantId }}</td>
+                        <td>{{ reservation.reservationStart }}</td>
+                        <td>{{ reservation.reservationEnd }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

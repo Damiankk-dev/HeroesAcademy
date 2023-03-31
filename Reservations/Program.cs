@@ -1,6 +1,16 @@
 using Reservations.Application;
 
 var builder = WebApplication.CreateBuilder(args);
+var myAllowPolicy = "_myAllowSpecificOrigins";
+
+// Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: myAllowPolicy, policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 // Add services to the container.
 
@@ -24,6 +34,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(myAllowPolicy);
 
 app.MapControllers();
 

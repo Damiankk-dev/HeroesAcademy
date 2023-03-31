@@ -28,6 +28,7 @@ import { ReservationsListComponent } from './reservations-list/reservations-list
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'reservations/:id', component: ReservationsListComponent },
     ])
   ],
   providers: [],
