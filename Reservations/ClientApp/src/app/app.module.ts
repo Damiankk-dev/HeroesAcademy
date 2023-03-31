@@ -28,9 +28,9 @@ import { ReservationsListComponent } from './reservations-list/reservations-list
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'reservations', component: ReservationsListComponent },
       { path: 'reservations/byhero/:id', component: ReservationsListComponent },
       { path: 'reservations/byroom/:id', component: ReservationsListComponent },
-      { path: 'reservations', redirectTo: 'reservations/byhero/1', pathMatch:'full' },
     ])
   ],
   providers: [],

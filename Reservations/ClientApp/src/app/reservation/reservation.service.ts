@@ -18,7 +18,12 @@ export class ReservationService {
   getReservationsByHeroId(id:string | null): Observable<ResponseResult<Reservation[]>>{
     return this.httpClient.get<ResponseResult<Reservation[]>>(this.reservationsApi + `/ByHero/${id}`);
   }
+
+  getReservations(): Observable<ResponseResult<Reservation[]>>{
+    return this.httpClient.get<ResponseResult<Reservation[]>>(this.reservationsApi);
+  }
 }
+
 export interface ResponseResult<T> {
   data: T;
   errorType: number;

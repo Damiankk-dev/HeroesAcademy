@@ -48,6 +48,11 @@ export class ReservationsListComponent implements OnInit {
       })      
       this.byHeroes = false;
       this.byRooms = true;
+    } else {      
+      this.reservationService.getReservations().subscribe((reservations: ResponseResult<Reservation[]>) =>{ 
+        this.reservations=reservations.data;
+        this.filteredReservations = this.reservations;
+      })   
     }
   }
 
