@@ -44,6 +44,12 @@ namespace HeroesAcademy.Application.Repository.Reservations
             return ResponseResult.Ok(reservations);
         }
 
+        public async Task<ResponseResult<List<Reservation>>> GetReservations()
+        {
+            var reservations = await _context.Reservations.ToListAsync();
+            return ResponseResult.Ok(reservations);
+        }
+
         public async Task<ResponseResult<Reservation>> Update(int reservationId, Reservation reservation)
         {
             var reservationDb = await _context.Reservations.FindAsync(reservationId);

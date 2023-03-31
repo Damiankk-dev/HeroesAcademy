@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Reservations.Application.Query;
 
 namespace HeroesAcademy.Controllers
 {
@@ -17,6 +18,18 @@ namespace HeroesAcademy.Controllers
         public ReservationsController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Reservation))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(int))]
+        public async Task<IActionResult> GetReservations()
+        {
+            var response = await _mediator.Send(new GetReservationsQuery());
+            return OkOrError(response);
         }
 
         [AllowAnonymous]

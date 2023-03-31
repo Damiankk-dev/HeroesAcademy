@@ -9,6 +9,7 @@ namespace HeroesAcademy.Application.Repository.Reservations
         Task<bool> Delete(int reservationId);
         Task<ResponseResult<List<Reservation>>> GetReservationByHeroId(int id);
         Task<ResponseResult<List<Reservation>>> GetReservationByRoomId(int id);
+        Task<ResponseResult<List<Reservation>>> GetReservations();
         Task<ResponseResult<Reservation>> Update(int reservationId, Reservation reservation);
         //Task<ResponseResult<List<Reservation>>> GetByUserId(int id);
         //Task<ResponseResult<Reservation>> Add(Reservation reservation);
