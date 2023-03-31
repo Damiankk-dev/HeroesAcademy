@@ -11,17 +11,19 @@ import { Reservation } from './reservation.model';
 export class ReservationsListComponent implements OnInit {
   reservations: Reservation[] = [];
   filteredReservations: Reservation[] = [];
-  heroes: number[] = [1, 1001]
-  rooms: string[] = ['1', '1001'] 
+  heroes: string[] = ['1', '1001']
+  rooms: string[] = ['1', '1001', '1002']
+  byHeroes: boolean = false;
+  byRooms: boolean = false;
 
-  private _listFilter: number = this.heroes[0];
+  private _listFilter: string = '';
 
-  public get listFilter(): number {
+  public get listFilter(): string {
     return this._listFilter;
   }
-  public set listFilter(v: number){
+  public set listFilter(v: string){
     this._listFilter = v;
-    this.filteredReservations = this.listFilter ? this.filterReservations(this.listFilter) : this.reservations
+    this.filteredReservations = Number(this.listFilter) ? this.filterReservations(Number(this.listFilter)) : this.reservations
   }
 
   constructor(
@@ -31,15 +33,34 @@ export class ReservationsListComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.reservationService.getReservationsByRoomId(id).subscribe((reservations: ResponseResult<Reservation[]>) =>{ 
-      this.reservations=reservations.data;
-      this.filteredReservations = this.reservations;
-    })
+    const subRoute = this.activatedRoute.snapshot.toString();
+    if(subRoute.indexOf("byhero") !== -1){
+      this.reservationService.getReservationsByHeroId(id).subscribe((reservations: ResponseResult<Reservation[]>) =>{ 
+        this.reservations=reservations.data;
+        this.filteredReservations = this.reservations;
+      })      
+      this.byHeroes = true;
+      this.byRooms = false;
+    }else if (subRoute.indexOf("byroom") !==-1){      
+      this.reservationService.getReservationsByRoomId(id).subscribe((reservations: ResponseResult<Reservation[]>) =>{ 
+        this.reservations=reservations.data;
+        this.filteredReservations = this.reservations;
+      })      
+      this.byHeroes = false;
+      this.byRooms = true;
+    }
   }
+
   filterReservations(listFilter: number): Reservation[]{
-    return this.reservations.filter((reservation: Reservation) => {
-      return reservation.tenantId == listFilter;
-    })
+    if (this.byRooms){
+      return this.reservations.filter((reservation: Reservation) => {
+        return reservation.tenantId == listFilter;
+      })
+    } else if (this.byHeroes){      
+      return this.reservations.filter((reservation: Reservation) => {
+        return reservation.roomId == listFilter;
+      })
+    } else throw new Error('not implemented');
   }
 
 }

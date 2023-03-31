@@ -2,7 +2,7 @@
 <div class="card">
     <div class="card-header">Reservations List</div><div class="card-body">
         <div class="row">
-          <div class="col-md-6 left">
+          <div class="col-md-6 left" *ngIf="byRooms">
             <h4>Filtrowanie po herosach:</h4>
             <select
                 id="hero"
@@ -11,6 +11,17 @@
             >
                 <option value="" selected disabled hidden>Wybierz</option>
                 <option *ngFor="let hero of heroes" >{{ hero }}</option>
+            </select>
+          </div>
+          <div class="col-md-6 left" *ngIf="byHeroes">
+            <h4>Filtrowanie po pokojach:</h4>
+            <select
+                id="room"
+                name="room"
+                [(ngModel)]="listFilter"
+            >
+                <option value="" selected disabled hidden>Wybierz</option>
+                <option *ngFor="let room of rooms" >{{ room }}</option>
             </select>
           </div>
         </div>

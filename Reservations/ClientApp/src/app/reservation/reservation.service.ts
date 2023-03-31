@@ -14,6 +14,10 @@ export class ReservationService {
   getReservationsByRoomId(id:string |null): Observable<ResponseResult<Reservation[]>>{
     return this.httpClient.get<ResponseResult<Reservation[]>>(this.reservationsApi + `/ByRoom/${id}`);
   }
+
+  getReservationsByHeroId(id:string | null): Observable<ResponseResult<Reservation[]>>{
+    return this.httpClient.get<ResponseResult<Reservation[]>>(this.reservationsApi + `/ByHero/${id}`);
+  }
 }
 export interface ResponseResult<T> {
   data: T;
