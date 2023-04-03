@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-header">
+        
+    </div>
+
+    <div class="card-body container">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div class="form-group">
+                <label for="roomId">Id Pokoju</label>                
+                <select
+                    class="form-control"
+                    id="roomId"
+                    name="roomId"
+                    [(ngModel)]="reservation.roomId"
+                >
+                    <option value="" selected disabled hidden>Wybierz</option>
+                    <option *ngFor="let room of rooms" >{{ room }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tenantId">Id Wynajmującego</label>
+                <select
+                    class="form-control"
+                    id="tenantId"
+                    name="tenantId"
+                    [(ngModel)]="reservation.tenantId"
+                >
+                    <option value="" selected disabled hidden>Wybierz</option>
+                    <option *ngFor="let room of rooms" >{{ room }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="reservationStart">Początek rezerwacji</label>
+                <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="reservationStart"
+                    name="reservationStart"
+                    [(ngModel)]="reservation.reservationStart"
+                >
+            </div>            
+            <div class="form-group">
+                <label for="reservationStart">Koniec rezerwacji</label>
+                <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="reservationStart"
+                    name="reservationStart"
+                    [(ngModel)]="reservation.reservationEnd"
+                >
+            </div>
+            <button type="submit" class="btn btn-primary me-1">
+                {{ reservation.id ? "Edytuj" : "Dodaj" }}
+            </button>
+        </form>
+    </div>
+</div>

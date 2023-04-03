@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ReservationsListComponent } from './reservations-list/reservations-list.component';
+import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReservationsListComponent } from './reservations-list/reservations-list
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ReservationsListComponent
+    ReservationsListComponent,
+    ReservationEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +31,8 @@ import { ReservationsListComponent } from './reservations-list/reservations-list
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'reservations', component: ReservationsListComponent },
+      { path: 'reservationEdit/:id', component: ReservationEditComponent },
+      { path: 'reservationEdit', component: ReservationEditComponent },
       { path: 'reservations/byhero/:id', component: ReservationsListComponent },
       { path: 'reservations/byroom/:id', component: ReservationsListComponent },
     ])

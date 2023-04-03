@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { formatDate } from '@angular/common';
+import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Reservation } from '../reservations-list/reservation.model';
@@ -21,6 +22,19 @@ export class ReservationService {
 
   getReservations(): Observable<ResponseResult<Reservation[]>>{
     return this.httpClient.get<ResponseResult<Reservation[]>>(this.reservationsApi);
+  }
+
+  getReservation(id:string | null): Observable<ResponseResult<Reservation>>{
+    return this.httpClient.get<ResponseResult<Reservation>>(this.reservationsApi + `/${id}`);
+  }
+
+  createReservation(reservation: Reservation): Observable<ResponseResult<Reservation>>{
+    const headers = new HttpHeaders({'Content-Type': 'application/json'})
+    console.log("reservation: ", reservation)
+    const newReservation = {...reservation, id: 0};
+    return this.httpClient.post<ResponseResult<Reservation>>(this.reservationsApi, newReservation,{
+      headers,
+    });
   }
 }
 

@@ -50,6 +50,12 @@ namespace HeroesAcademy.Application.Repository.Reservations
             return ResponseResult.Ok(reservations);
         }
 
+        public async ValueTask<ResponseResult<Reservation?>> GetReservationById(int id)
+        {
+            var reservation = await _context.Reservations.FindAsync(id);
+            return ResponseResult.Ok(reservation);
+        }
+
         public async Task<ResponseResult<Reservation>> Update(int reservationId, Reservation reservation)
         {
             var reservationDb = await _context.Reservations.FindAsync(reservationId);

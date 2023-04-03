@@ -21,6 +21,17 @@ namespace HeroesAcademy.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Reservation))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(int))]
+        public async Task<IActionResult> GetReservation(int id)
+        {
+            var response = await _mediator.Send(new GetReservationByIdQuery(id));
+            return OkOrError(response);
+        }
+        [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Reservation))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
