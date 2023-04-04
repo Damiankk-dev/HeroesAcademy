@@ -42,6 +42,11 @@ export class ReservationService {
     console.log("Reservaion: ",reservation);
     return this.httpClient.put<ResponseResult<Reservation>>(url, reservation, {headers});
   }
+
+  deleteReservation(id: number): Observable<ResponseResult<number>> {
+    const url = `${this.reservationsApi}/${id}`;
+    return this.httpClient.delete<ResponseResult<number>>(url);
+  }
 }
 
 export interface ResponseResult<T> {

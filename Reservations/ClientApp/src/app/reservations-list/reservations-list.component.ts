@@ -68,4 +68,20 @@ export class ReservationsListComponent implements OnInit {
     } else throw new Error('not implemented');
   }
 
+  deleteReservation(reservation: Reservation): void{
+    if (reservation && reservation.id){
+      if (confirm(`Czy chcesz usunąć rezerwację nr: ${reservation.id}?`)) {
+        this.reservationService.deleteReservation(reservation.id).subscribe(() =>{
+          const foundIndex = this.reservations.findIndex(
+            (item) => item.id ===reservation.id
+          );
+          if (foundIndex >-1) {
+            this.reservations.splice(foundIndex, 1);
+          }
+          this.filteredReservations = this.reservations;
+        });
+      }
+    }
+  }
+
 }

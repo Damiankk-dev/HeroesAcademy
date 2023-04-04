@@ -1,4 +1,3 @@
-<p>reservations-list works!</p>
 <div class="card">
     <div class="card-header">Reservations List</div><div class="card-body">
         <div class="row">
@@ -34,6 +33,7 @@
                         <th>TenentId</th>
                         <th>Start</th>
                         <th>Koniec</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +45,12 @@
                         <td>{{ reservation.tenantId }}</td>
                         <td>{{ reservation.reservationStart }}</td>
                         <td>{{ reservation.reservationEnd }}</td>
+                        <td>
+                            <span
+                                class="delete"
+                                (click)="deleteReservation(reservation)"
+                            >X</span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
