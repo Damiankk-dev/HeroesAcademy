@@ -38,7 +38,9 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let reservation of filteredReservations">
-                        <td>{{reservation.id}}</td>
+                        <td>
+                            <a [routerLink]="['/reservations', reservation.id]">{{reservation.id}}</a>
+                        </td>
                         <td>{{reservation.roomId }}</td>
                         <td>{{ reservation.tenantId }}</td>
                         <td>{{ reservation.reservationStart }}</td>
@@ -47,5 +49,10 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-success" [routerLink]="['/reservationEdit']">
+        Dodaj rezerwację
+      </button>
     </div>
 </div>

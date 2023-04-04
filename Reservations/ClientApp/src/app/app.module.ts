@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
+import { ReservationDetailComponent } from './reservation-detail/reservation-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReservationEditComponent } from './reservation-edit/reservation-edit.co
     CounterComponent,
     FetchDataComponent,
     ReservationsListComponent,
-    ReservationEditComponent
+    ReservationEditComponent,
+    ReservationDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +33,7 @@ import { ReservationEditComponent } from './reservation-edit/reservation-edit.co
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'reservations', component: ReservationsListComponent },
+      { path: 'reservations/:id', component: ReservationDetailComponent },
       { path: 'reservationEdit/:id', component: ReservationEditComponent },
       { path: 'reservationEdit', component: ReservationEditComponent },
       { path: 'reservations/byhero/:id', component: ReservationsListComponent },

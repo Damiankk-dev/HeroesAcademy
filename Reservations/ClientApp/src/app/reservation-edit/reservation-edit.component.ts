@@ -40,18 +40,22 @@ export class ReservationEditComponent implements OnInit {
   onSubmit(form: NgForm): void{
     if (form.valid) {
       if (!this.reservation.id) {
-        console.log("Reservation before date change: ", this.reservation);  
         this.reservation.reservationStart = formatDate(this.reservation.reservationStart, "yyyy-MM-ddThh:mm:ss.ss","en-US");
         this.reservation.reservationEnd = formatDate(this.reservation.reservationEnd, "yyyy-MM-ddThh:mm:ss.ss","en-US");
-        console.log("Reservation after date change: ", this.reservation); 
         this.reservationService.createReservation(this.reservation).subscribe(() =>{    
           this.router.navigate(['/reservations']);
         });
         
       } else {
-        this.router.navigate(['/reservations']);        
-      }
+        console.log("reservation before changes: ", this.reservation);
+        this.reservation.reservationStart = formatDate(this.reservation.reservationStart, "yyyy-MM-ddThh:mm:ss.ss","en-US");
+        this.reservation.reservationEnd = formatDate(this.reservation.reservationEnd, "yyyy-MM-ddThh:mm:ss.ss","en-US");
+        console.log("reservation after changes: ", this.reservation);
+        this.reservationService.updateReservation(this.reservation).subscribe(() =>{    
+          this.router.navigate(['/reservations']);      
+      });
     }
   }
+}
 
 }
