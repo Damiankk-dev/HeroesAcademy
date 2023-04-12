@@ -2,7 +2,7 @@
 using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 
-namespace HeroesAcademy.Application.Commands.Reservations
+namespace Reservations.Application.Commands
 {
     public class DeleteReservationCommand : IRequest<ResponseResult<int>>
     {

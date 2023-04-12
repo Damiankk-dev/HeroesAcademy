@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeroesAcademy.Application.Commands.Reservations
+namespace Reservations.Application.Commands
 {
     public class UpdateReservationCommand : IRequest<ResponseResult<Reservation>>
     {

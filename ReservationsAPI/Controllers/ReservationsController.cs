@@ -1,10 +1,10 @@
-﻿using HeroesAcademy.Application.Commands.Reservations;
-using HeroesAcademy.Application.Query.Reservations;
-using HeroesAcademy.Domain.Models.Reservations;
+﻿using HeroesAcademy.Domain.Models.Reservations;
+using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Reservations.Application.Commands;
 using Reservations.Application.Query;
 
 namespace HeroesAcademy.Controllers
@@ -68,7 +68,7 @@ namespace HeroesAcademy.Controllers
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Reservation))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type=typeof(Reservation))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> AddReservation([FromBody] Reservation reservation)
         {

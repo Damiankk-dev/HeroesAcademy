@@ -3,7 +3,7 @@ using HeroesAcademy.Domain.Models.Reservations;
 using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 
-namespace HeroesAcademy.Application.Query.Reservations
+namespace Reservations.Application.Query
 {
     public class GetReservationByRoomIdQuery : IRequest<ResponseResult<List<Reservation>>>
     {
