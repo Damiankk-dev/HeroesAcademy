@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HeroesAcademy.Application\HeroesAcademy.Application.csproj" />
     <ProjectReference Include="..\HeroesAcademy.Domain\HeroesAcademy.Domain.csproj" />
     <ProjectReference Include="..\Reservations.Application\Reservations.Application.csproj" />
   </ItemGroup>
