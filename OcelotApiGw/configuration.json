@@ -1,6 +1,19 @@
 {
   "Routes": [
     {
+      "DownstreamPathTemplate": "/api/Reservations/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7241
+        }
+      ],
+      "UpstreamPathTemplate": "/Reservations/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "SwaggerKey": "reservations"
+    },
+    {
       "DownstreamPathTemplate": "/api/Reservations",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -9,21 +22,11 @@
           "Port": 7241
         }
       ],
-      "UpstreamPathTemplate": "/R",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamPathTemplate": "/Reservations",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "reservations"
     },
-    {
-      "DownstreamPathTemplate": "/WeatherForecast",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7245
-        }
-      ],
-      "UpstreamPathTemplate": "/W",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
+    //Heroes API
     {
       "DownstreamPathTemplate": "/api/Heroes",
       "DownstreamScheme": "https",
@@ -33,11 +36,48 @@
           "Port": 7111
         }
       ],
-      "UpstreamPathTemplate": "/H",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamPathTemplate": "/Heroes",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "heroes"
+    },
+    {
+      "DownstreamPathTemplate": "/api/Heroes/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7111
+        }
+      ],
+      "UpstreamPathTemplate": "/Heroes/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "SwaggerKey": "heroes"
+    }
+  ],
+
+  "SwaggerEndPoints": [
+    {
+      "Key": "reservations",
+      "Config": [
+        {
+          "Name": "Reservations API",
+          "Version": "v1",
+          "Url": "https://localhost:7241/Swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "heroes",
+      "Config": [
+        {
+          "Name": "Heroes API",
+          "Version": "v1",
+          "Url": "https://localhost:7111/Swagger/v1/swagger.json"
+        }
+      ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7128"
+    "BaseUrl": "https://localhost"
   }
 }
