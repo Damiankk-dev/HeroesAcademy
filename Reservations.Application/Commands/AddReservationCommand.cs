@@ -1,7 +1,7 @@
 ﻿using HeroesAcademy.Application.Repository.Reservations;
 using HeroesAcademy.Domain.Models.Reservations;
-using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
+using Shared.Models;
 
 namespace Reservations.Application.Commands
 {

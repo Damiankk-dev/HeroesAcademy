@@ -1,5 +1,5 @@
 ﻿using HeroesAcademy.Domain.Models.Heroes;
-using HeroesAcademy.Domain.Models.Shared;
+using Shared.Models;
 
 namespace HeroesAcademy.Application.Repository.Heroes
 {

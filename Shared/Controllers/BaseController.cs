@@ -1,8 +1,8 @@
 ﻿using System.Net;
-using HeroesAcademy.Domain.Models.Shared;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Models;
 
-namespace ReservationsAPI.Controllers;
+namespace Shared.Controllers;
 
 public class BaseController : ControllerBase
 {

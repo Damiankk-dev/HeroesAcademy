@@ -1,6 +1,6 @@
 ﻿using static System.String;
 
-namespace HeroesAcademy.Domain.Models.Shared;
+namespace Shared.Models;
 
 public static class ResponseResult
 {

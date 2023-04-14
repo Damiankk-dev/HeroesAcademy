@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HeroesAcademy.Domain\HeroesAcademy.Domain.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

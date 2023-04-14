@@ -1,10 +1,11 @@
 ﻿using HeroesAcademy.Application.Commands.Heroes;
 using HeroesAcademy.Application.Query.Heroes;
 using HeroesAcademy.Domain.Models.Heroes;
-using HeroesAcademy.Domain.Models.Shared;
+using Shared.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Controllers;
 
 namespace HeroesAcademy.Controllers
 {

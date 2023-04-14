@@ -1,11 +1,11 @@
 ﻿using HeroesAcademy.Domain.Models.Reservations;
-using HeroesAcademy.Domain.Models.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Reservations.Application.Commands;
 using Reservations.Application.Query;
+using Shared.Controllers;
 
 namespace ReservationsAPI.Controllers;
 

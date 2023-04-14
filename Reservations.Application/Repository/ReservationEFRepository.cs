@@ -1,5 +1,5 @@
 ﻿using HeroesAcademy.Domain.Models.Reservations;
-using HeroesAcademy.Domain.Models.Shared;
+using Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace HeroesAcademy.Application.Repository.Reservations
