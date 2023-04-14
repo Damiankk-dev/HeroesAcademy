@@ -7,9 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Controllers;
 
-namespace HeroesAcademy.Controllers
+namespace HeroesAPI.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class HeroesController : BaseController
@@ -43,6 +42,7 @@ namespace HeroesAcademy.Controllers
             return OkOrError(response);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ResponseResult<bool>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseResult<bool>))]
@@ -53,6 +53,7 @@ namespace HeroesAcademy.Controllers
             return OkOrError(response);
         }
 
+        [AllowAnonymous]
         [HttpPut("{heroId}")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ResponseResult<Hero>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseResult<Hero>))]
