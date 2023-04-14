@@ -1,9 +1,8 @@
 ﻿using System.Net;
-using HeroesAcademy.Domain.Models.Heroes;
 using HeroesAcademy.Domain.Models.Shared;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HeroesAcademy.Controllers;
+namespace ReservationsAPI.Controllers;
 
 public class BaseController : ControllerBase
 {
@@ -30,6 +29,9 @@ public class BaseController : ControllerBase
                 break;
             case ErrorType.ValidationError:
                 result = (int)HttpStatusCode.BadRequest;
+                break;
+            case ErrorType.OK:
+                result = (int)HttpStatusCode.OK;
                 break;
             case ErrorType.None:
                 break;

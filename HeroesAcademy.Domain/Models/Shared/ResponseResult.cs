@@ -4,7 +4,7 @@ namespace HeroesAcademy.Domain.Models.Shared;
 
 public static class ResponseResult
 {
-    public static ResponseResult<T> Ok<T>(T data) => new(data, Empty, ErrorType.None);
+    public static ResponseResult<T> Ok<T>(T data) => new(data, Empty, ErrorType.OK);
 
     public static ResponseResult<T> NotFound<T>(string message) =>
         new ResponseResult<T>(default!, message, ErrorType.NotFound);
@@ -45,5 +45,6 @@ public enum ErrorType
     ValidationError,
     HttpError,
     Unknown,
-    Failed
+    Failed,
+    OK
 }
