@@ -30,10 +30,8 @@ public class BaseController : ControllerBase
             case ErrorType.ValidationError:
                 result = (int)HttpStatusCode.BadRequest;
                 break;
-            case ErrorType.OK:
-                result = (int)HttpStatusCode.OK;
-                break;
             case ErrorType.None:
+                result = (int)HttpStatusCode.OK;
                 break;
         }
 
