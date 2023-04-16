@@ -14,6 +14,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HeroEditComponent } from './hero-edit/hero-edit.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
+import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
     HomeComponent,
     NavMenuComponent,
     HeroEditComponent,
+    ReservationsListComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,6 +37,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
       { path: 'heroEdit/:id', component: HeroEditComponent, canActivate: [AuthorizeGuard] },
       { path: 'heroEdit', component: HeroEditComponent, canActivate: [AuthorizeGuard] },
       { path: 'heroes/:id', component: HeroDetailsComponent },
+      { path: 'reservations', component: ReservationsListComponent },
       {
         path: 'heroes',
         component: HeroesListComponent,
