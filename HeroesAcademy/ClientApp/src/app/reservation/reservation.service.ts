@@ -29,6 +29,7 @@ export class ReservationService {
 
   createReservation(reservation: Reservation): Observable<ResponseResult<Reservation>>{
     const headers = new HttpHeaders({'Content-Type': 'application/json'})
+    console.log("INSIDE SERVICE header: ", headers);
     const newReservation = {...reservation, id: 0};
     return this.httpClient.post<ResponseResult<Reservation>>(this.reservationsApi, newReservation,{
       headers,
