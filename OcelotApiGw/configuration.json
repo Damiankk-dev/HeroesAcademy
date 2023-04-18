@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/Reservations/{everything}",
+      "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -9,8 +9,8 @@
           "Port": 7241
         }
       ],
-      "UpstreamPathTemplate": "/Reservations/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamPathTemplate": "/{everything}",
+      "UpstreamHttpMethod": [ ],
       "SwaggerKey": "reservations"
     },
     {
@@ -22,8 +22,8 @@
           "Port": 7241
         }
       ],
-      "UpstreamPathTemplate": "/Reservations",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamPathTemplate": "/",
+      "UpstreamHttpMethod": [ ],
       "SwaggerKey": "reservations"
     },
     //Heroes API
@@ -78,6 +78,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost"
+    "BaseUrl": "http://localhost:4200"
   }
 }
