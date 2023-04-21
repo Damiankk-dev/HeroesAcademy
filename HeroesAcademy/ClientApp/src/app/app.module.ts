@@ -38,8 +38,8 @@ import { ReservationEditComponent } from './reservation-edit/reservation-edit.co
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'heroEdit/:id', component: HeroEditComponent, canActivate: [AuthorizeGuard] },
-      { path: 'heroEdit', component: HeroEditComponent, canActivate: [AuthorizeGuard] },
+      { path: 'heroEdit/:id', component: HeroEditComponent},
+      { path: 'heroEdit', component: HeroEditComponent},
       { path: 'heroes/:id', component: HeroDetailsComponent },
       { path: 'reservations', component: ReservationsListComponent },
       { path: 'reservations/:id', component: ReservationDetailsComponent },

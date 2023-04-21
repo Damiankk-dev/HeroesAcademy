@@ -37,7 +37,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Heroes",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHttpMethod": [ ],
       "SwaggerKey": "heroes"
     },
     {
@@ -50,7 +50,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Heroes/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamHttpMethod": [ ],
       "SwaggerKey": "heroes"
     }
   ],
