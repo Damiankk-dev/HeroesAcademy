@@ -43,8 +43,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//app.UseAuthentication();
-//app.UseIdentityServer();
+app.UseAuthentication();
+app.UseIdentityServer();
 app.UseAuthorization();
 
 app.UseCors(myAllowPolicy);

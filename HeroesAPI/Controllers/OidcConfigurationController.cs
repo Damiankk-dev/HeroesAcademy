@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HeroesAcademy.Controllers
+namespace HeroesAPI.Controllers
 {
     public class OidcConfigurationController : Controller
     {
