@@ -11,7 +11,7 @@ import { Hero } from '../heroes-list/hero.model';
   providedIn: 'root',
 })
 export class HeroService {
-  private heroesApi: string = 'https://localhost:7128/Heroes';
+  private heroesApi: string = 'https://localhost:7112/Heroes';
   constructor(private httpClient: HttpClient) {}
   getHeroes(): Observable<ResponseResult<Hero[]>> {
     return this.httpClient.get<ResponseResult<Hero[]>>(this.heroesApi);

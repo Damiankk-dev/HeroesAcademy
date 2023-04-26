@@ -33,7 +33,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7111
+          "Port": 7112
         }
       ],
       "UpstreamPathTemplate": "/Heroes",
@@ -46,7 +46,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7111
+          "Port": 7112
         }
       ],
       "UpstreamPathTemplate": "/Heroes/{everything}",
@@ -72,7 +72,7 @@
         {
           "Name": "Heroes API",
           "Version": "v1",
-          "Url": "https://localhost:7111/Swagger/v1/swagger.json"
+          "Url": "https://localhost:7112/Swagger/v1/swagger.json"
         }
       ]
     }
