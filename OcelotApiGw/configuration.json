@@ -1,5 +1,21 @@
 {
   "Routes": [
+    //Auth API
+    {
+      "DownstreamPathTemplate": "/api/Account",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5225
+        }
+      ],
+      "UpstreamPathTemplate": "/Account",
+      "UpstreamHttpMethod": [ "Post" ],
+      "SwaggerKey": "auth"
+
+    },
+    //Reservations API
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "https",
@@ -10,7 +26,7 @@
         }
       ],
       "UpstreamPathTemplate": "/{everything}",
-      "UpstreamHttpMethod": [ ],
+      "UpstreamHttpMethod": [],
       "SwaggerKey": "reservations"
     },
     {
@@ -23,7 +39,7 @@
         }
       ],
       "UpstreamPathTemplate": "/",
-      "UpstreamHttpMethod": [ ],
+      "UpstreamHttpMethod": [],
       "SwaggerKey": "reservations"
     },
     //Heroes API
@@ -37,7 +53,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Heroes",
-      "UpstreamHttpMethod": [ ],
+      "UpstreamHttpMethod": [],
       "SwaggerKey": "heroes"
     },
     {
@@ -50,7 +66,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Heroes/{everything}",
-      "UpstreamHttpMethod": [ ],
+      "UpstreamHttpMethod": [],
       "SwaggerKey": "heroes"
     }
   ],
@@ -73,6 +89,16 @@
           "Name": "Heroes API",
           "Version": "v1",
           "Url": "https://localhost:7112/Swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "auth",
+      "Config": [
+        {
+          "Name": "Auth API",
+          "Version": "v1",
+          "Url": "http://localhost:5225/Swagger/v1/swagger.json"
         }
       ]
     }
