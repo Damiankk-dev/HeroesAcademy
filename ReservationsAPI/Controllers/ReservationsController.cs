@@ -20,8 +20,8 @@ public class ReservationsController : BaseController
         _mediator = mediator;
     }
 
-    [AllowAnonymous]
     [HttpGet("{id}")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(int))]
@@ -67,6 +67,7 @@ public class ReservationsController : BaseController
         return OkOrError(response);
     }
     [HttpPost]
+    [Authorize(Roles ="Administrator")]
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -89,6 +90,7 @@ public class ReservationsController : BaseController
     }
     [AllowAnonymous]
     [HttpPut("{reservationId}")]
+    [Authorize(Roles = "Administrator,User")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(int))]
     [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(int))]

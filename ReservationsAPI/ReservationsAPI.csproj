@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HeroesAcademy.Domain\HeroesAcademy.Domain.csproj" />
+    <ProjectReference Include="..\JwtAuthenticationManager\JwtAuthenticationManager.csproj" />
     <ProjectReference Include="..\Reservations.Application\Reservations.Application.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
