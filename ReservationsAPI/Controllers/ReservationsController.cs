@@ -20,7 +20,7 @@ public class ReservationsController : BaseController
         _mediator = mediator;
     }
 
-    [AllowAnonymous]
+    [Authorize]
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
@@ -43,7 +43,6 @@ public class ReservationsController : BaseController
         return OkOrError(response);
     }
 
-    [AllowAnonymous]
     [HttpGet("ByRoom/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
@@ -55,7 +54,6 @@ public class ReservationsController : BaseController
         return OkOrError(response);
     }
 
-    [AllowAnonymous]
     [HttpGet("ByHero/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
@@ -66,6 +64,8 @@ public class ReservationsController : BaseController
         var response = await _mediator.Send(new GetReservationByHeroIdQuery(id));
         return OkOrError(response);
     }
+
+    [Authorize]
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
@@ -76,7 +76,7 @@ public class ReservationsController : BaseController
         return OkOrError(response);
     }
 
-    [AllowAnonymous]
+    [Authorize]
     [HttpDelete("{reservationId}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(int))]
@@ -87,7 +87,8 @@ public class ReservationsController : BaseController
         var response = await _mediator.Send(new DeleteReservationCommand(reservationId));
         return OkOrError(response);
     }
-    [AllowAnonymous]
+
+    [Authorize]
     [HttpPut("{reservationId}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(int))]

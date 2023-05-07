@@ -20,10 +20,10 @@ builder.Services.AddControllersWithViews(options => options.SuppressImplicitRequ
 {
     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
 });
-builder.Services.AddSwaggerGen(c =>
-{
-    c.OperationFilter<SwaggerFileOperationFilter>();
-});
+//builder.Services.AddSwaggerGen(c =>
+//{
+//    c.OperationFilter<SwaggerFileOperationFilter>();
+//});
 //builder.Services.Configure<FileServerConfiguration>(builder.Configuration.GetSection(FileServerConfiguration.SectionName));
 
 //var connectionString = builder.Configuration.GetConnectionString("HeroesAcademy");
@@ -41,8 +41,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
-app.UseFileServer(true);
-app.UseSwagger();
+//app.UseFileServer(true);
+//app.UseSwagger();
 //app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Heroes Academy"));
 //var options = app.Services.GetRequiredService<IOptions<FileServerConfiguration>>();
 //app.UseStaticFiles(
