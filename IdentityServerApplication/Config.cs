@@ -70,12 +70,12 @@ namespace IdentityServerApplication
              new TestUser
              {
                  SubjectId = "5BE86359–073C-434B-AD2D-A3932222DABE",
-                 Username = "mehmet",
-                 Password = "mehmet",
+                 Username = "admin",
+                 Password = "admin",
                  Claims = new List<Claim>
                  {
-                     new Claim(JwtClaimTypes.GivenName, "mehmet"),
-                     new Claim(JwtClaimTypes.FamilyName,"ozkaya")
+                     new Claim(JwtClaimTypes.GivenName, "admin"),
+                     new Claim(JwtClaimTypes.FamilyName,"admin")
                  }
              }
          };

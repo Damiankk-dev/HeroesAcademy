@@ -17,6 +17,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ReservationEditComponent } from './reservation-edit/reservation-edit.co
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     ApiAuthorizationModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule,  
+    AuthenticationModule,
     RouterModule.forRoot([
       { path: 'heroEdit/:id', component: HeroEditComponent},
       { path: 'heroEdit', component: HeroEditComponent},
