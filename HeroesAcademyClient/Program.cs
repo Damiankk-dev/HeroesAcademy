@@ -35,12 +35,13 @@ builder.Services.AddAuthentication(options =>
  {
      options.Authority = "https://localhost:7058";
 
-     options.ClientId = "shopping_web";
+     options.ClientId = "heroesAcademyClient";
      options.ClientSecret = "secret";
-     options.ResponseType = "code";
+     options.ResponseType = "code id_token";
 
      options.Scope.Add("openid");
      options.Scope.Add("profile");
+     options.Scope.Add("reservationsAPI");
      options.SaveTokens = true;
      options.GetClaimsFromUserInfoEndpoint = true;
  });

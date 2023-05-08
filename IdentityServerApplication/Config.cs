@@ -16,7 +16,7 @@ namespace IdentityServerApplication
         {
             new Client
             {
-                ClientId = "heroesAcademyClient",
+                ClientId = "heroesAcademy",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets =
                 {
@@ -26,17 +26,18 @@ namespace IdentityServerApplication
             },
             new Client
             {
-                ClientId = "reservations_app",
-                ClientName = "Reservations Application",
-                AllowedGrantTypes = GrantTypes.Code,
+                ClientId = "heroesAcademyClient",
+                ClientName = "Heroes Academy Client",
+                AllowedGrantTypes = GrantTypes.Hybrid,
+                RequirePkce = false,
                 AllowRememberConsent = false,
                 RedirectUris = new List<string>()
                 {
-                    "https://localhost:7241/signin-oidc"
+                    "https://localhost:7009/login"
                 },
                 PostLogoutRedirectUris = new List<string>()
                 {
-                    "https://localhost:7241/signout-callback-oidc"
+                    "https://localhost:7009/signout-callback-oidc"
                 },
                 ClientSecrets =
                 {
@@ -45,7 +46,8 @@ namespace IdentityServerApplication
                 AllowedScopes = new List<string>
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
-                    IdentityServerConstants.StandardScopes.Profile
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "reservationsAPI"
                 }
             }
         };
@@ -70,12 +72,11 @@ namespace IdentityServerApplication
              new TestUser
              {
                  SubjectId = "5BE86359–073C-434B-AD2D-A3932222DABE",
-                 Username = "admin",
-                 Password = "admin",
+                 Username = "Q@g.com",
+                 Password = "D@miano0",
                  Claims = new List<Claim>
                  {
-                     new Claim(JwtClaimTypes.GivenName, "admin"),
-                     new Claim(JwtClaimTypes.FamilyName,"admin")
+                     new Claim(JwtClaimTypes.Email, "Q@g.com")
                  }
              }
          };

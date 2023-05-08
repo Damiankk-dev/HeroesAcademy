@@ -13,6 +13,7 @@ namespace OcelotBasic
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var authenticationProviderKey = "IdentityApiKey";
 
             // Add services to the container.
 
@@ -20,6 +21,15 @@ namespace OcelotBasic
                 .AddJsonFile("configuration.json")
                 .AddJsonFile("appsettings.json");
 
+            builder.Services.AddAuthentication()
+                .AddJwtBearer(authenticationProviderKey, x =>
+                {
+                    x.Authority = "https://localhost:7058";
+                    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+                });
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddSwaggerGen();

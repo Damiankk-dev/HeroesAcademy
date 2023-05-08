@@ -10,8 +10,12 @@
         }
       ],
       "UpstreamPathTemplate": "/{everything}",
-      "UpstreamHttpMethod": [ ],
-      "SwaggerKey": "reservations"
+      "UpstreamHttpMethod": [],
+      "SwaggerKey": "reservations",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "IdentityApiKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Reservations",
@@ -23,8 +27,12 @@
         }
       ],
       "UpstreamPathTemplate": "/",
-      "UpstreamHttpMethod": [ ],
-      "SwaggerKey": "reservations"
+      "UpstreamHttpMethod": [],
+      "SwaggerKey": "reservations",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "IdentityApiKey",
+        "AllowedScopes": []
+      }
     },
     //Heroes API
     {
@@ -37,7 +45,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Heroes",
-      "UpstreamHttpMethod": [ ],
+      "UpstreamHttpMethod": [],
       "SwaggerKey": "heroes"
     },
     {
@@ -50,7 +58,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Heroes/{everything}",
-      "UpstreamHttpMethod": [ ],
+      "UpstreamHttpMethod": [],
       "SwaggerKey": "heroes"
     }
   ],
@@ -79,5 +87,9 @@
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:4200"
+  },
+  "AuthenticationOptions": {
+    "AuthenticationProviderKey": "IdentityApiKey",
+    "AllowedScopes": []
   }
 }
