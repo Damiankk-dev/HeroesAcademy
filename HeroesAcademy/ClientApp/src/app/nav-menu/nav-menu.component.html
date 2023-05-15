@@ -33,7 +33,11 @@
           >
         </li>
       </ul>
-      <app-login-menu></app-login-menu>
+      <!--<app-login-menu></app-login-menu>-->
+      <section> 
+        <button *ngIf="!isUserAuthenticated" class="btn btn-link" style="color:gray" (click)="login()">Login</button>
+        <button *ngIf="isUserAuthenticated" class="btn btn-link" style="color:gray" (click)="logout()">Logout</button> 
+      </section>
     </div>
   </div>
 </nav>

@@ -7,10 +7,16 @@ import { Reservation } from './reservation.model';
   providedIn: 'root'
 })
 export class ReservationService {
-  private reservationsApi: string = 'https://localhost:7128/Reservations'
+  private reservationsApi: string = 'https://localhost:7241/api/Reservations'
+  private urlAddress = "https://localhost:7241";
 
   constructor(private httpClient:HttpClient) { }
   
+
+  public getData = (route: string) => {
+    return this.httpClient.get(this.createCompleteRoute(route, this.urlAddress));
+  }
+
   getReservationsByRoomId(id:string |null): Observable<ResponseResult<Reservation[]>>{
     return this.httpClient.get<ResponseResult<Reservation[]>>(this.reservationsApi + `/ByRoom/${id}`);
   }
@@ -46,6 +52,10 @@ export class ReservationService {
   deleteReservation(id: number): Observable<ResponseResult<number>> {
     const url = `${this.reservationsApi}/${id}`;
     return this.httpClient.delete<ResponseResult<number>>(url);
+  }
+
+  private createCompleteRoute = (route: string, envAddress: string) => {
+    return `${envAddress}/${route}`;
   }
 }
 

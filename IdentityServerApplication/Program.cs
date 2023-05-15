@@ -12,8 +12,12 @@ builder.Services.AddIdentityServer()
     .AddInMemoryIdentityResources(Config.IdentityResources)
     .AddInMemoryApiResources(Config.ApiResources)
     .AddInMemoryApiScopes(Config.ApiScopes)
-    .AddTestUsers(Config.TestUsers)
-    .AddDeveloperSigningCredential();
+    .AddTestUsers(Config.GetUsers())
+    .AddDeveloperSigningCredential()
+    .AddProfileService<CustomProfileService>();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
@@ -33,6 +37,10 @@ app.UseIdentityServer();
 
 app.UseAuthorization();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapDefaultControllerRoute();
+});
 app.MapRazorPages();
 
 app.Run();

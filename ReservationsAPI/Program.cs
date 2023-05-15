@@ -20,11 +20,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication("Bearer")
  .AddJwtBearer("Bearer", options =>
  {
-     options.Authority = "https://localhost:7058";
-     options.TokenValidationParameters = new TokenValidationParameters
-     {
-         ValidateAudience = false
-     };
+     options.RequireHttpsMetadata = false;
+     options.Authority = "https://localhost:7242";
+     options.Audience = "reservationsApi";
  });
 
 

@@ -1,3 +1,4 @@
+/*
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -56,3 +57,4 @@ export class RegisterUserComponent implements OnInit {
     })
   }
 }
+*/

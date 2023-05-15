@@ -22,7 +22,7 @@ namespace IdentityServerApplication
                 {
                     new IdentityServer4.Models.Secret("secret".Sha256())
                 },
-                AllowedScopes = {"reservationsAPI"}
+                AllowedScopes = { "reservationsApi" }
             },
             new Client
             {
@@ -47,14 +47,34 @@ namespace IdentityServerApplication
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
-                    "reservationsAPI"
+                    "reservationsApi"
                 }
-            }
+            },
+               new Client
+                {
+                    ClientName = "Angular-Client",
+                    ClientId = "angular-client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RedirectUris = new List<string>{ "http://localhost:4200/signin-callback", "http://localhost:4200/assets/silent-callback.html" },
+                    RequirePkce = true,
+                    AllowAccessTokensViaBrowser = true,
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "reservationsApi"
+                    },
+                AllowedCorsOrigins = { "http://localhost:4200" },
+                RequireClientSecret = false,
+                PostLogoutRedirectUris = new List<string> { "http://localhost:4200/signout-callback" },
+                RequireConsent = false,
+                AccessTokenLifetime = 600
+                }
         };
         public static IEnumerable<ApiScope> ApiScopes =>
          new ApiScope[]
          {
-             new ApiScope("reservationsAPI", "Reservations API")
+             new ApiScope("reservationsApi", "Reservations API")
          };
         public static IEnumerable<ApiResource> ApiResources =>
          new ApiResource[]
@@ -66,20 +86,30 @@ namespace IdentityServerApplication
              new IdentityResources.OpenId(),
              new IdentityResources.Profile()
          };
-        public static List<TestUser> TestUsers =>
-         new List<TestUser>
-         {
-             new TestUser
-             {
-                 SubjectId = "5BE86359–073C-434B-AD2D-A3932222DABE",
-                 Username = "Q@g.com",
-                 Password = "D@miano0",
-                 Claims = new List<Claim>
-                 {
-                     new Claim(JwtClaimTypes.Email, "Q@g.com")
-                 }
-             }
-         };
+        public static List<TestUser> GetUsers() =>
+          new List<TestUser>
+          {
+              new TestUser
+              {
+                  SubjectId = "a9ea0f25-b964-409f-bcce-c923266249b4",
+                  Username = "admin",
+                  Password = "AdminPassword",
+                  Claims = new List<Claim>
+                  {
+                      new Claim("role", "Admin")
+                  }
+              },
+              new TestUser
+              {
+                  SubjectId = "c95ddb8c-79ec-488a-a485-fe57a1462340",
+                  Username = "visit",
+                  Password = "VisitPassword",
+                  Claims = new List<Claim>
+                  {
+                      new Claim("role", "Visitor")
+                  }
+              }
+          };
     }
 
 }

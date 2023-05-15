@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
@@ -12,12 +12,11 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HeroEditComponent } from './hero-edit/hero-edit.component';
-import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
-import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { ReservationEditComponent } from './reservation-edit/reservation-edit.component';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,6 @@ import { AuthenticationModule } from './authentication/authentication.module';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    ApiAuthorizationModule,
     HttpClientModule,
     FormsModule,  
     AuthenticationModule,
@@ -55,7 +53,9 @@ import { AuthenticationModule } from './authentication/authentication.module';
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ]),
   ],
-  providers: [],
+  providers: [
+    {    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -31,7 +31,8 @@ public class ReservationsController : BaseController
         var response = await _mediator.Send(new GetReservationByIdQuery(id));
         return OkOrError(response);
     }
-    [AllowAnonymous]
+
+    [Authorize]
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Reservation))]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Reservation))]
