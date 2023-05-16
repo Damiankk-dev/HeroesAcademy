@@ -1,5 +1,6 @@
 using HeroesAcademy.Application;
 using HeroesAcademy.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
@@ -19,6 +20,17 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+}).AddJwtBearer(options =>
+{
+    options.Authority = "https://localhost:7242";
+    options.RequireHttpsMetadata = false;
+    options.Audience = "heroesApi";
+});
 
 var connectionString = builder.Configuration.GetConnectionString("HeroesAcademy");
 builder.Services.AddApplication(connectionString);
@@ -43,8 +55,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//app.UseAuthentication();
-//app.UseIdentityServer();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseCors(myAllowPolicy);

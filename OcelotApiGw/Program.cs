@@ -29,7 +29,7 @@ namespace OcelotBasic
                     x.RequireHttpsMetadata = false;
                     x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
                     {
-                        ValidAudiences = new[] { "reservationsApi"}
+                        ValidAudiences = new[] { "reservationsApi", "heroesApi" }
                     };
                 });
             builder.Services.AddControllers();

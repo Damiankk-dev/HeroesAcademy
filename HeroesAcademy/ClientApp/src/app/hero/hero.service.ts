@@ -6,12 +6,14 @@ import {
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Hero } from '../heroes-list/hero.model';
+import { Constants } from '../constants/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroService {
-  private heroesApi: string = 'https://localhost:7112/Heroes';
+  // private heroesApi: string = 'https://localhost:7112/api/Heroes';
+  private heroesApi: string = Constants.apiRoot + '/Heroes';
   constructor(private httpClient: HttpClient) {}
   getHeroes(): Observable<ResponseResult<Hero[]>> {
     return this.httpClient.get<ResponseResult<Hero[]>>(this.heroesApi);

@@ -18,7 +18,7 @@ export class AuthenticationService {
       authority: Constants.idpAuthority,
       client_id: Constants.clientId,
       redirect_uri: `${Constants.clientRoot}/signin-callback`,
-      scope: "openid profile reservationsApi",
+      scope: "openid profile reservationsApi heroesApi",
       response_type: "code",
       post_logout_redirect_uri: `${Constants.clientRoot}/signout-callback`
     }

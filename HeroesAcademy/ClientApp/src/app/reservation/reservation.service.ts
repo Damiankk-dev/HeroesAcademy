@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Reservation } from './reservation.model';
+import { Constants } from '../constants/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
-  private reservationsApi: string = 'https://localhost:7128/Reservations'
+  private reservationsApi: string =  Constants.apiRoot + '/Reservations'
   constructor(private httpClient:HttpClient) { }
 
   getReservationsByRoomId(id:string |null): Observable<ResponseResult<Reservation[]>>{

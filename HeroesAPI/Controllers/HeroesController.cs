@@ -20,7 +20,7 @@ namespace HeroesAPI.Controllers
             _mediator = mediator;
         }
 
-        [AllowAnonymous]
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Hero>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

@@ -14,42 +14,6 @@ namespace IdentityServer
         public static IEnumerable<Client> Clients =>
         new Client[]
         {
-            /*new Client
-            {
-                ClientId = "heroesAcademy",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
-                ClientSecrets =
-                {
-                    new IdentityServer4.Models.Secret("secret".Sha256())
-                },
-                AllowedScopes = { "reservationsApi" }
-            },
-            new Client
-            {
-                ClientId = "heroesAcademyClient",
-                ClientName = "Heroes Academy Client",
-                AllowedGrantTypes = GrantTypes.Hybrid,
-                RequirePkce = false,
-                AllowRememberConsent = false,
-                RedirectUris = new List<string>()
-                {
-                    "https://localhost:7009/login"
-                },
-                PostLogoutRedirectUris = new List<string>()
-                {
-                    "https://localhost:7009/signout-callback-oidc"
-                },
-                ClientSecrets =
-                {
-                    new IdentityServer4.Models.Secret("secret".Sha256())
-                },
-                AllowedScopes = new List<string>
-                {
-                    IdentityServerConstants.StandardScopes.OpenId,
-                    IdentityServerConstants.StandardScopes.Profile,
-                    "reservationsApi"
-                }
-            },*/
                new Client
                 {
                     ClientName = "Angular-Client",
@@ -62,7 +26,8 @@ namespace IdentityServer
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "reservationsApi"
+                        "reservationsApi",
+                        "heroesApi"
                     },
                 AllowedCorsOrigins = { "http://localhost:4200" },
                 RequireClientSecret = false,
@@ -74,7 +39,8 @@ namespace IdentityServer
         public static IEnumerable<ApiScope> ApiScopes =>
          new ApiScope[]
          {
-             new ApiScope("reservationsApi", "Reservations API")
+             new ApiScope("reservationsApi", "Reservations API"),
+             new ApiScope("heroesApi", "Heroes API")
          };
         public static IEnumerable<ApiResource> ApiResources =>
         new ApiResource[]
@@ -82,7 +48,11 @@ namespace IdentityServer
             new ApiResource("reservationsApi", "Reservations API")
              {
                  Scopes = {"reservationsApi"}
-             }
+             },
+            new ApiResource("heroesApi", "Heroes API")
+            {
+                Scopes = { "heroesApi" }
+            }
         };
 
         public static IEnumerable<IdentityResource> IdentityResources =>
