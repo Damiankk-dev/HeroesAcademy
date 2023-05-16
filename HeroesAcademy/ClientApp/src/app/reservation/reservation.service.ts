@@ -7,15 +7,8 @@ import { Reservation } from './reservation.model';
   providedIn: 'root'
 })
 export class ReservationService {
-  private reservationsApi: string = 'https://localhost:7241/api/Reservations'
-  private urlAddress = "https://localhost:7241";
-
+  private reservationsApi: string = 'https://localhost:7128/Reservations'
   constructor(private httpClient:HttpClient) { }
-  
-
-  public getData = (route: string) => {
-    return this.httpClient.get(this.createCompleteRoute(route, this.urlAddress));
-  }
 
   getReservationsByRoomId(id:string |null): Observable<ResponseResult<Reservation[]>>{
     return this.httpClient.get<ResponseResult<Reservation[]>>(this.reservationsApi + `/ByRoom/${id}`);

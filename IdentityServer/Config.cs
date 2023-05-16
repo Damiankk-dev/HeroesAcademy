@@ -14,7 +14,7 @@ namespace IdentityServer
         public static IEnumerable<Client> Clients =>
         new Client[]
         {
-            new Client
+            /*new Client
             {
                 ClientId = "heroesAcademy",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -49,14 +49,14 @@ namespace IdentityServer
                     IdentityServerConstants.StandardScopes.Profile,
                     "reservationsApi"
                 }
-            },
+            },*/
                new Client
                 {
                     ClientName = "Angular-Client",
                     ClientId = "angular-client",
                     AllowedGrantTypes = GrantTypes.Code,
                     RedirectUris = new List<string>{ "http://localhost:4200/signin-callback", "http://localhost:4200/assets/silent-callback.html" },
-                    RequirePkce = true,
+                    RequirePkce = false,
                     AllowAccessTokensViaBrowser = true,
                     AllowedScopes =
                     {

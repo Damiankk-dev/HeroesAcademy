@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -24,10 +25,11 @@ namespace OcelotBasic
             builder.Services.AddAuthentication()
                 .AddJwtBearer(authenticationProviderKey, x =>
                 {
-                    x.Authority = "https://localhost:7058";
-                    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    x.Authority = "https://localhost:7242";
+                    x.RequireHttpsMetadata = false;
+                    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
                     {
-                        ValidateAudience = false
+                        ValidAudiences = new[] { "reservationsApi"}
                     };
                 });
             builder.Services.AddControllers();
@@ -54,6 +56,7 @@ namespace OcelotBasic
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();
