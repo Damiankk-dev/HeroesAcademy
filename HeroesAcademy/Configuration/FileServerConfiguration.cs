@@ -1,4 +1,4 @@
-﻿namespace HeroesAcademy.Configuration
+﻿namespace HeroesAcademy_.Configuration
 {
     public class FileServerConfiguration
     {

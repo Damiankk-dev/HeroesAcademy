@@ -1,0 +1,83 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7241
+        }
+      ],
+      "UpstreamPathTemplate": "/{everything}",
+      "UpstreamHttpMethod": [],
+      "SwaggerKey": "reservations"
+    },
+    {
+      "DownstreamPathTemplate": "/api/Reservations",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7241
+        }
+      ],
+      "UpstreamPathTemplate": "/",
+      "UpstreamHttpMethod": [],
+      "SwaggerKey": "reservations"
+    },
+    //Heroes API
+    {
+      "DownstreamPathTemplate": "/api/Heroes",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7112
+        }
+      ],
+      "UpstreamPathTemplate": "/Heroes",
+      "UpstreamHttpMethod": [],
+      "SwaggerKey": "heroes"
+    },
+    {
+      "DownstreamPathTemplate": "/api/Heroes/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7112
+        }
+      ],
+      "UpstreamPathTemplate": "/Heroes/{everything}",
+      "UpstreamHttpMethod": [],
+      "SwaggerKey": "heroes"
+    }
+  ],
+
+  "SwaggerEndPoints": [
+    {
+      "Key": "reservations",
+      "Config": [
+        {
+          "Name": "Reservations API",
+          "Version": "v1",
+          "Url": "https://localhost:7241/Swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "heroes",
+      "Config": [
+        {
+          "Name": "Heroes API",
+          "Version": "v1",
+          "Url": "https://localhost:7112/Swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:4200"
+  }
+}

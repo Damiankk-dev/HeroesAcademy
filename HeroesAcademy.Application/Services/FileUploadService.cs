@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Formats.Asn1;
-using System.IO.Enumeration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeroesAcademy.Application.Services
+﻿namespace HeroesAcademy.Application.Services
 {
     internal class FileUploadService:IFileUploadService
     {
-        public async Task<string> SaveFileAsync(byte[] bytes, string folderName, string fileName, string fileExtension) 
+        public async Task<string> SaveFileAsync(byte[] bytes, string folderName, string fileName, string fileExtension)
         {
-            
-            if (string.IsNullOrEmpty(folderName) || string.IsNullOrEmpty(fileName) || string.IsNullOrEmpty(fileExtension)){
+            if (string.IsNullOrEmpty(folderName) || string.IsNullOrEmpty(fileName) || string.IsNullOrEmpty(fileExtension))
+            {
                 throw new FileNotFoundException();
             }
             fileName = Path.GetFileNameWithoutExtension(fileName);
@@ -24,6 +16,7 @@ namespace HeroesAcademy.Application.Services
             {
                 await fileStream.WriteAsync(bytes);
             }
+
             return $"{folderName}/{fileName}{fileExtension}";
         }
     }

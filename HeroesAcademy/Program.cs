@@ -1,33 +1,34 @@
 using HeroesAcademy.Application;
-using HeroesAcademy.Configuration;
+//using HeroesAcademy.Configuration;
 using HeroesAcademy.Swagger;
-using MediatR;
-using System.Reflection;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
-var MyAllowPolicy = "_myAllowSpecificOrigins";
+var myAllowPolicy = "_myAllowSpecificOrigins";
 
 // Add services to the container.
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowPolicy, configurePolicy: policy =>
+    options.AddPolicy(name: myAllowPolicy, policy =>
     {
         policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
 });
-
-builder.Services.AddControllersWithViews().AddJsonOptions(options =>
+builder.Services.AddControllersWithViews(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true).AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
 });
-builder.Services.AddSwaggerGen(c =>
-{
-    c.OperationFilter<SwaggerFileOperationFilter>();
-});
-builder.Services.Configure<FileServerConfiguration>(builder.Configuration.GetSection(FileServerConfiguration.SectionName));
+//builder.Services.AddSwaggerGen(c =>
+//{
+//    c.OperationFilter<SwaggerFileOperationFilter>();
+//});
+//builder.Services.Configure<FileServerConfiguration>(builder.Configuration.GetSection(FileServerConfiguration.SectionName));
 
-var connectionString = builder.Configuration.GetConnectionString("HeroesAcademy");
-builder.Services.AddApplication(connectionString);
+//var connectionString = builder.Configuration.GetConnectionString("HeroesAcademy");
+//builder.Services.AddApplication(connectionString);
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
@@ -40,17 +41,25 @@ if (!app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
-app.UseFileServer(true);
-app.UseSwagger();
-app.UseSwaggerUI(c => c.SwaggerEndpoint(url:"v1/swagger.json", "HeroesAcademy"));
+//app.UseFileServer(true);
+//app.UseSwagger();
+//app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Heroes Academy"));
+//var options = app.Services.GetRequiredService<IOptions<FileServerConfiguration>>();
 //app.UseStaticFiles(
-//        new StaticFileExtensions
-//    );
+//    new StaticFileOptions
+//    {
+//        FileProvider = new PhysicalFileProvider($"{Environment.GetFolderPath(Environment.SpecialFolder.CommonPictures)}"),
+//        RequestPath = options.Value.RequestPath,
+//        ContentTypeProvider = new FileExtensionContentTypeProvider()
+//    });
 app.UseRouting();
+
 app.UseAuthentication();
-app.UseIdentityServer();
+//app.UseIdentityServer();
 app.UseAuthorization();
-app.UseCors(MyAllowPolicy);
+
+app.UseCors(myAllowPolicy);
+
 
 app.MapControllerRoute(
     name: "default",

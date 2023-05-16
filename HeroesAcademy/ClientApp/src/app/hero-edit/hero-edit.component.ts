@@ -1,47 +1,67 @@
-import { NgForOf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { HeroService } from '../hero/hero.service';
 import { Hero } from '../heroes-list/hero.model';
+import { NgForm } from '@angular/forms';
+import { HeroService, ResponseResult } from '../hero/hero.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero-edit',
   templateUrl: './hero-edit.component.html',
-  styleUrls: ['./hero-edit.component.css']
+  styleUrls: ['./hero-edit.component.css'],
 })
 export class HeroEditComponent implements OnInit {
-  pageTitle="edycja herosa";
-  teams= ["League","X-Men", "Avengers", "others"];
+  pageTitle = 'Edycja herosa';
+  teams = ['Justice League', 'Avengers', 'X-men'];
+  type = 'password';
   isPasswordVisible = false;
-  inputType = "password";
-  hero: Hero={
+  hero: Hero = {
     name: '',
     team: '',
     secretIdentity: '',
     salary: 0,
     strength: 0,
     description: '',
-    active: false,
-    logoUrl: ''
+    isActive: false,
+    logoUrl: '',
   } as Hero;
 
-  constructor(private heroService:HeroService, private router:Router) {
-
-   }
+  constructor(
+    private heroService: HeroService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-  }
-  onIconClick(): void{
-    this.isPasswordVisible = !this.isPasswordVisible;
-    this.inputType = this.isPasswordVisible?"text":"password";
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (id) {
+      this.heroService
+        .getHero(id)
+        .subscribe((response: ResponseResult<Hero>) => {
+          this.hero = response.data;
+        });
+    }
   }
 
-  onSubmit(form:NgForm):void{
-    if (form.valid){
-      this.heroService.createHero(this.hero).subscribe(()=>{
-        this.router.navigate(['/heroes']);
-      });
+  onInfoClick(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+    this.type = this.isPasswordVisible ? 'text' : 'password';
+  }
+
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      if (!this.hero.id) {
+        this.heroService.createHero(this.hero).subscribe(() => {
+          this.router.navigate(['/heroes']);
+        });
+      } else {
+        this.heroService.updateHero(this.hero).subscribe(() => {
+          this.router.navigate(['/heroes']);
+        });
+      }
     }
+  }
+
+  onCancelClick(): void {
+    this.router.navigate(['/heroes']);
   }
 }
