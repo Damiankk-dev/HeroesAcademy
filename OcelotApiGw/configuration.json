@@ -11,11 +11,7 @@
       ],
       "UpstreamPathTemplate": "/{everything}",
       "UpstreamHttpMethod": [],
-      "SwaggerKey": "reservations",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "IdentityApiKey",
-        "AllowedScopes": []
-      }
+      "SwaggerKey": "reservations"
     },
     {
       "DownstreamPathTemplate": "/api/Reservations",
@@ -28,11 +24,7 @@
       ],
       "UpstreamPathTemplate": "/",
       "UpstreamHttpMethod": [],
-      "SwaggerKey": "reservations",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "IdentityApiKey",
-        "AllowedScopes": []
-      }
+      "SwaggerKey": "reservations"
     },
     //Heroes API
     {
@@ -87,9 +79,5 @@
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:4200"
-  },
-  "AuthenticationOptions": {
-    "AuthenticationProviderKey": "IdentityApiKey",
-    "AllowedScopes": []
   }
 }
